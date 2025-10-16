@@ -57,7 +57,7 @@ import { MenuState } from './shared/menu/menu-state.model';
 @Injectable({
   providedIn: 'root',
 })
-export class MenuResolverService  {
+export class MenuResolverService {
   constructor(
     protected menuService: MenuService,
     protected browseService: BrowseService,
@@ -130,17 +130,32 @@ export class MenuResolverService  {
             });
           });
           menuList.push(
-            /* Browse */
+            /* Communities & Collections tree */
             {
-              id: 'browse_global',
+              id: ``,
               active: false,
               visible: true,
-              index: 1,
+              index: 0,
               model: {
-                type: MenuItemType.TEXT,
-                text: 'menu.section.browse_global',
-              } as TextMenuItemModel,
+                type: MenuItemType.LINK,
+                text: `Sobre`,
+                link: `/about`,
+              } as LinkMenuItemModel,
             },
+            /* Browse */
+            // =========================
+            // Desativação do menu All of DSpace
+            // {
+            //   id: 'browse_global',
+            //   active: false,
+            //   visible: true,
+            //   index: 1,
+            //   model: {
+            //     type: MenuItemType.TEXT,
+            //     text: 'menu.section.browse_global',
+            //   } as TextMenuItemModel,
+            // },
+            // =========================
           );
         }
         menuList.forEach((menuSection) => this.menuService.addSection(MenuID.PUBLIC, Object.assign(menuSection, {
