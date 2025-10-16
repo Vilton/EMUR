@@ -1,6 +1,6 @@
 :host {
-  --ds-header-navbar-border-bottom-style: solid var(--ds-header-navbar-border-bottom-height) var(--ds-header-navbar-border-bottom-color);
-  --ds-expandable-navbar-border-top-style: solid var(--ds-expandable-navbar-border-top-height) var(--ds-expandable-navbar-border-top-color);
+  // --ds-header-navbar-border-bottom-style: solid var(--ds-header-navbar-border-bottom-height) var(--ds-header-navbar-border-bottom-color);
+  // --ds-expandable-navbar-border-top-style: solid var(--ds-expandable-navbar-border-top-height) var(--ds-expandable-navbar-border-top-color);
   --ds-expandable-navbar-height: calc(100vh - var(--ds-header-height));
 
   div#header-navbar-wrapper {
@@ -27,27 +27,38 @@
   /* MENU ITEMS */
 
   ::ng-deep {
-    .ds-menu-item, .ds-menu-toggler-wrapper {
+
+    .ds-menu-item,
+    .ds-menu-toggler-wrapper {
       text-decoration: none;
     }
 
-    nav#desktop-navbar { // in header component
+    nav#desktop-navbar {
+
+      // in header component
       #main-site-navigation {
         /* Desktop menu */
 
-        .ds-menu-item-wrapper, .ds-menu-item, .ds-menu-toggler-wrapper {
+        .ds-menu-item-wrapper,
+        .ds-menu-item,
+        .ds-menu-toggler-wrapper {
           // fill navbar height (required by dropdown menus) and center content
           display: flex;
           align-items: center;
           height: 100%;
         }
+
         .ds-menu-item {
           // define here the style for top-level navbar menu items
           padding: var(--ds-navbar-item-vertical-padding) var(--ds-navbar-item-horizontal-padding);
         }
-        .ds-menu-item, .ds-menu-toggler-wrapper {
+
+        .ds-menu-item,
+        .ds-menu-toggler-wrapper {
           color: var(--ds-navbar-link-color) !important;
-          &:hover, &:focus {
+
+          &:hover,
+          &:focus {
             color: var(--ds-navbar-link-color-hover) !important;
           }
         }
@@ -64,7 +75,8 @@
       }
     }
 
-    nav#collapsible-mobile-navbar { // in header-navbar-wrapper component
+    nav#collapsible-mobile-navbar {
+      // in header-navbar-wrapper component
 
       border-top: var(--ds-expandable-navbar-border-top-style);
       padding-top: var(--ds-expandable-navbar-padding-top);
