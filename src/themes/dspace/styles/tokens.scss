@@ -1,0 +1,169 @@
+/* Styles */
+$primary-darker-background: #9f822d;
+$primary-darker-color: #9f822d;
+$primary-main-background: #c7a339;
+$primary-main-color: #c7a339;
+$primary-lighter-background: #ddc888;
+$primary-lighter-color: #ddc888;
+$primary-subtle-background: #f4edd7;
+$primary-subtle-color: #f4edd7;
+$primary-whitish-background: #fcfaf6;
+$primary-whitish-color: #fcfaf6;
+$system-error-600-background: #f31912;
+$system-error-600-color: #f31912;
+$system-error-500-background: #f54741;
+$system-error-500-color: #f54741;
+$system-error-400-background: #f87772;
+$system-error-400-color: #f87772;
+$system-error-300-background: #faa6a3;
+$system-error-300-color: #faa6a3;
+$system-warning-600-background: #e4b806;
+$system-warning-600-color: #e4b806;
+$system-warning-500-background: #f9ce23;
+$system-warning-500-color: #f9ce23;
+$system-warning-400-background: #fbde6a;
+$system-warning-400-color: #fbde6a;
+$system-warning-300-background: #fdf0b9;
+$system-warning-300-color: #fdf0b9;
+$system-info-600-background: #0c3de9;
+$system-info-600-color: #0c3de9;
+$system-info-500-background: #3560f5;
+$system-info-500-color: #3560f5;
+$system-info-400-background: #6d8cf8;
+$system-info-400-color: #6d8cf8;
+$system-info-300-background: #c5d1fc;
+$system-info-300-color: #c5d1fc;
+$system-success-600-background: #2d9a5a;
+$system-success-600-color: #2d9a5a;
+$system-success-500-background: #38c171;
+$system-success-500-color: #38c171;
+$system-success-400-background: #84dba9;
+$system-success-400-color: #84dba9;
+$system-success-300-background: #ace7c5;
+$system-success-300-color: #ace7c5;
+$gray-800-background: #1b1b18;
+$gray-800-color: #1b1b18;
+$gray-700-background: #363630;
+$gray-700-color: #363630;
+$gray-600-background: #66665c;
+$gray-600-color: #66665c;
+$gray-500-background: #9a9a8e;
+$gray-500-color: #9a9a8e;
+$gray-400-background: #c3c3bc;
+$gray-400-color: #c3c3bc;
+$gray-300-background: #dbdbd7;
+$gray-300-color: #dbdbd7;
+$gray-200-background: #ececea;
+$gray-200-color: #ececea;
+$gray-100-background: #f9f9f9;
+$gray-100-color: #f9f9f9;
+
+@mixin heading-h-1-text {
+    font-family: ITC Bauhaus;
+    font-style: Bold;
+    font-size: 48px;
+    letter-spacing: 0%;
+    line-height: 129.99999523162842%;
+    text-decoration-line: none;
+    text-transform: none;
+}
+
+@mixin heading-h-2-text {
+    font-family: ITC Bauhaus;
+    font-style: Bold;
+    font-size: 32px;
+    letter-spacing: 0%;
+    line-height: 129.99999523162842%;
+    text-decoration-line: none;
+    text-transform: none;
+}
+
+@mixin heading-h-3-text {
+    font-family: ITC Bauhaus;
+    font-style: Bold;
+    font-size: 24px;
+    letter-spacing: 0%;
+    line-height: 129.99999523162842%;
+    text-decoration-line: none;
+    text-transform: none;
+}
+
+@mixin heading-h-4-text {
+    font-family: ITC Bauhaus;
+    font-style: Bold;
+    font-size: 20px;
+    letter-spacing: 0%;
+    line-height: 129.99999523162842%;
+    text-decoration-line: none;
+    text-transform: none;
+}
+
+@mixin body-p-large-text {
+    font-family: BR Omny;
+    font-style: Regular;
+    font-size: 24px;
+    letter-spacing: 0%;
+    line-height: 150%;
+    text-decoration-line: none;
+    text-transform: none;
+}
+
+@mixin body-p-medium-text {
+    font-family: BR Omny;
+    font-style: Regular;
+    font-size: 18px;
+    letter-spacing: 0%;
+    line-height: 150%;
+    text-decoration-line: none;
+    text-transform: none;
+}
+
+@mixin body-p-normal-text {
+    font-family: BR Omny;
+    font-style: Regular;
+    font-size: 16px;
+    letter-spacing: 0%;
+    line-height: 170.00000476837158%;
+    text-decoration-line: none;
+    text-transform: none;
+}
+
+@mixin body-p-small-text {
+    font-family: BR Omny;
+    font-style: Regular;
+    font-size: 14px;
+    letter-spacing: 0%;
+    line-height: 170.00000476837158%;
+    text-decoration-line: none;
+    text-transform: none;
+}
+
+@mixin label-l-medium-text {
+    font-family: BR Omny;
+    font-style: SemiBold;
+    font-size: 18px;
+    letter-spacing: -3%;
+    line-height: 100%;
+    text-decoration-line: none;
+    text-transform: none;
+}
+
+@mixin label-l-normal-text {
+    font-family: BR Omny;
+    font-style: SemiBold;
+    font-size: 16px;
+    letter-spacing: -3%;
+    line-height: 100%;
+    text-decoration-line: none;
+    text-transform: none;
+}
+
+@mixin label-l-small-text {
+    font-family: BR Omny;
+    font-style: SemiBold;
+    font-size: 14px;
+    letter-spacing: -3%;
+    line-height: 100%;
+    text-decoration-line: none;
+    text-transform: none;
+}
