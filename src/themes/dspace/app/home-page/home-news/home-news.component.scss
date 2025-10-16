@@ -1,79 +1,124 @@
-:host {
-  display: block;
+// :host {
+//   display: block;
 
-  div.background-image-container {
-    color: white;
-    position: relative;
-    font-weight: 600;
+//   div.background-image-container {
+//     color: white;
+//     position: relative;
+//     font-weight: 600;
 
-    .background-image > img {
-      background-color: var(--bs-info);
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-    }
+//     .background-image>img {
+//       background-color: var(--bs-info);
+//       position: absolute;
+//       z-index: -1;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//       object-position: top;
+//     }
 
-    .container {
-      position: relative;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+//     .container {
+//       position: relative;
+//       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 
-      &:before, &:after {
-        content: '';
-        display: block;
-        width: var(--ds-banner-background-gradient-width);
-        height: 100%;
-        top: 0;
-        position: absolute;
-      }
+//       &:before,
+//       &:after {
+//         content: '';
+//         display: block;
+//         width: var(--ds-banner-background-gradient-width);
+//         height: 100%;
+//         top: 0;
+//         position: absolute;
+//       }
 
-      &:before {
-        background: linear-gradient(to left, var(--ds-banner-text-background), transparent);
-        left: calc(-1 * var(--ds-banner-background-gradient-width));
+//       &:before {
+//         background: linear-gradient(to left, var(--ds-banner-text-background), transparent);
+//         left: calc(-1 * var(--ds-banner-background-gradient-width));
 
-      }
+//       }
 
-      &:after {
-        background: linear-gradient(to right, var(--ds-banner-text-background), transparent);
-        right: calc(-1 * var(--ds-banner-background-gradient-width));
-      }
+//       &:after {
+//         background: linear-gradient(to right, var(--ds-banner-text-background), transparent);
+//         right: calc(-1 * var(--ds-banner-background-gradient-width));
+//       }
 
-      background-color: var(--ds-banner-text-background);
-    }
+//       background-color: var(--ds-banner-text-background);
+//     }
 
 
-    small.credits {
-      a {
-        color: inherit;
-      }
+//     small.credits {
+//       a {
+//         color: inherit;
+//       }
 
-      opacity: 0.3;
-      position: absolute;
-      right: var(--bs-spacer);
-      bottom: 0;
-    }
-  }
+//       opacity: 0.3;
+//       position: absolute;
+//       right: var(--bs-spacer);
+//       bottom: 0;
+//     }
+//   }
 
-  .jumbotron {
-    background-color: transparent;
-  }
+//   .jumbotron {
+//     background-color: transparent;
+//   }
 
-  a {
-    color: var(--ds-home-news-link-color);
+//   a {
+//     color: var(--ds-home-news-link-color);
 
-    @include hover {
-      color: var(--ds-home-news-link-hover-color);
-    }
-  }
+//     @include hover {
+//       color: var(--ds-home-news-link-hover-color);
+//     }
+//   }
 
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 400;
-  }
+//   .lead {
+//     font-size: 1.25rem;
+//     font-weight: 400;
+//   }
+// }
+
+@import '../../../styles/tokens.scss';
+
+.hero-section {
+  background: transparent;
+  // height: 720px;
+  background-image: url('../../../../../assets/images/emur/heroEmur.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
 }
 
+.img1 {
+  top: -92px;
+  left: -14px;
+  position: absolute;
+  display: flex;
+  display: flex;
+}
 
+.legenda_I402-318-284-471 {
+  padding: 16px 24px 16px 24px;
+  top: 830px;
+  left: 1011px;
+  position: absolute;
+  display: flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #36363099;
+}
+
+.text-recife--retalhos-da-cidade--petr-nio-cunha_I402-318-284-468 {
+  color: $gray-100-color;
+  @include label-l-medium-text;
+  font-weight: 600;
+  text-align: right;
+  text-wrap: nowrap;
+}
