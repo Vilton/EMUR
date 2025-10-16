@@ -1,0 +1,113 @@
+@import '../../styles/tokens.scss';
+
+:host {
+  footer {
+    background-color: #ECECEA;
+    text-align: center;
+    z-index: var(--ds-footer-z-index);
+    border-top: var(--ds-footer-border);
+    padding: var(--ds-footer-padding);
+
+    p {
+      margin: 0;
+    }
+
+    .text-footer {
+      color: $primary-subtle-color;
+      @include body-p-medium-text;
+      font-weight: 400;
+      text-align: left;
+      text-wrap: wrap;
+      width: -webkit-fill-available;
+    }
+
+    div>img {
+      height: calc(var(--ds-footer-logo-height) * 1.2);
+    }
+
+    .top-footer {
+      background: #1B1B18;
+      padding: var(--ds-footer-padding);
+      margin: calc(var(--ds-footer-padding) * -1);
+    }
+
+    .left-footer {
+      background-image: url('../../../../assets/images/emur/textura-linhas.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      max-height: 230px;
+    }
+
+    .right-footer {
+      background-image: url('../../../../assets/images/emur/textura-linhas.png');
+      transform: rotate(180deg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      max-height: 230px;
+    }
+
+    .right-footer-text {
+      text-align: right;
+      color: #f4edd7;
+      font-family: BR Omny;
+      font-style: Regular;
+      font-size: 18px;
+      letter-spacing: 0%;
+      line-height: 150%;
+      text-decoration-line: underline;
+      transform: rotate(180deg);
+    }
+
+    .bottom-footer {
+      .notify-enabled {
+        position: absolute;
+        bottom: 4px;
+        right: 0;
+
+        .coar-notify-support-route {
+          padding: 0 calc(var(--bs-spacer) / 2);
+          color: inherit;
+        }
+
+        .n-coar {
+          height: var(--ds-footer-n-coar-height);
+          margin-bottom: 8.5px;
+        }
+
+        margin-top: 20px;
+      }
+
+      ul {
+        li {
+          display: inline-flex;
+
+          a,
+          .btn-link {
+            padding: 0 calc(var(--bs-spacer) / 2);
+            color: inherit;
+            font-size: .875em;
+
+            &:focus {
+              box-shadow: none;
+              text-decoration: underline;
+            }
+
+            &:focus-visible {
+              box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+            }
+          }
+
+          &:not(:last-child) {
+            &:after {
+              content: '';
+              border-right: 1px var(--bs-secondary) solid;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

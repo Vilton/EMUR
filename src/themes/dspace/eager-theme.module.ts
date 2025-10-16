@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { RootModule } from '../../app/root.module';
+import { FooterComponent } from './app/footer/footer.component';
 import { HeaderComponent } from './app/header/header.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
 import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
@@ -19,6 +20,7 @@ const DECLARATIONS = [
   HeaderComponent,
   HeaderNavbarWrapperComponent,
   NavbarComponent,
+  FooterComponent,
 ];
 
 @NgModule({
