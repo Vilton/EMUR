@@ -1,4 +1,3 @@
-import { ACCESSIBILITY_COOKIE } from '../../accessibility/accessibility-settings.service';
 import {
   IMPERSONATING_COOKIE,
   REDIRECT_COOKIE,
@@ -204,13 +203,6 @@ export const klaroConfiguration: any = {
       onAccept: `window.refreshCaptchaScript?.call()`,
       onDecline: `window.refreshCaptchaScript?.call()`,
       onlyOnce: true,
-    },
-    {
-      name: 'accessibility',
-      purposes: ['functional'],
-      required: false,
-      cookies: [ACCESSIBILITY_COOKIE],
-      onlyOnce: false,
     },
   ],
 };

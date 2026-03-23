@@ -9,7 +9,6 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import {
   TranslateModule,
   TranslateService,
@@ -44,7 +43,6 @@ import {
   getRemoteDataPayload,
 } from '../core/shared/operators';
 import { SuggestionsNotificationComponent } from '../notifications/suggestions-notification/suggestions-notification.component';
-import { AlertComponent } from '../shared/alert/alert.component';
 import {
   hasValue,
   isNotEmpty,
@@ -78,8 +76,6 @@ import { ProfilePageSecurityFormComponent } from './profile-page-security-form/p
     PaginationComponent,
     ThemedLoadingComponent,
     ErrorComponent,
-    RouterModule,
-    AlertComponent,
   ],
   standalone: true,
 })

@@ -48,17 +48,21 @@ export class EndUserAgreementService {
    *                              currently not authenticated (anonymous)
    */
   hasCurrentUserAcceptedAgreement(acceptedWhenAnonymous: boolean): Observable<boolean> {
-    return this.authService.isAuthenticated().pipe(
-      switchMap((authenticated) => {
-        if (authenticated) {
-          return this.authService.getAuthenticatedUserFromStore().pipe(
-            map((user) => hasValue(user) && user.hasMetadata(END_USER_AGREEMENT_METADATA_FIELD) && user.firstMetadata(END_USER_AGREEMENT_METADATA_FIELD).value === 'true'),
-          );
-        } else {
-          return observableOf(acceptedWhenAnonymous);
-        }
-      }),
-    );
+
+    return observableOf(true);
+
+    // return this.authService.isAuthenticated().pipe(
+    //   switchMap((authenticated) => {
+    //     if (authenticated) {
+    //       return this.authService.getAuthenticatedUserFromStore().pipe(
+    //         map((user) => hasValue(user) && user.hasMetadata(END_USER_AGREEMENT_METADATA_FIELD) && user.firstMetadata(END_USER_AGREEMENT_METADATA_FIELD).value === 'true'),
+    //       );
+    //     } else {
+    //       return observableOf(acceptedWhenAnonymous);
+    //     }
+    //   }),
+    // );
+
   }
 
   /**

@@ -48,11 +48,6 @@ import { UploaderProperties } from './uploader-properties.model';
 export class UploaderComponent implements OnInit, AfterViewInit {
 
   /**
-   * Header key to impersonate a user
-   */
-  private readonly ON_BEHALF_HEADER = 'X-On-Behalf-Of';
-
-  /**
    * The message to show when drag files on the drop zone
    */
   @Input() dropMsg: string;
@@ -167,13 +162,7 @@ export class UploaderComponent implements OnInit, AfterViewInit {
         item.url = this.uploader.options.url;
       }
       // Ensure the current XSRF token is included in every upload request (token may change between items uploaded)
-      // Ensure the behalf header is set if impersonating
-      this.uploader.options.headers = [
-        { name: XSRF_REQUEST_HEADER, value: this.tokenExtractor.getToken() },
-      ];
-      if (hasValue(this.uploadFilesOptions.impersonatingID)) {
-        this.uploader.options.headers.push({ name: this.ON_BEHALF_HEADER, value: this.uploadFilesOptions.impersonatingID });
-      }
+      this.uploader.options.headers = [{ name: XSRF_REQUEST_HEADER, value: this.tokenExtractor.getToken() }];
       this.onBeforeUpload();
       this.isOverDocumentDropZone = observableOf(false);
     };

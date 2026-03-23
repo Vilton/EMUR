@@ -37,8 +37,6 @@ import {
 } from './request.models';
 import { RequestService } from './request.service';
 import objectContaining = jasmine.objectContaining;
-import { RestResponse } from '../cache/response.models';
-import { RequestEntry } from './request-entry.model';
 
 describe('BitstreamDataService', () => {
   let service: BitstreamDataService;
@@ -49,7 +47,6 @@ describe('BitstreamDataService', () => {
   let rdbService: RemoteDataBuildService;
   let bundleDataService: BundleDataService;
   const bitstreamFormatHref = 'rest-api/bitstreamformats';
-  let responseCacheEntry: RequestEntry;
 
   const bitstream1 = Object.assign(new Bitstream(), {
     id: 'fake-bitstream1',
@@ -74,13 +71,8 @@ describe('BitstreamDataService', () => {
   const url = 'fake-bitstream-url';
 
   beforeEach(() => {
-    responseCacheEntry = new RequestEntry();
-    responseCacheEntry.request = { href: 'https://rest.api/' } as any;
-    responseCacheEntry.response = new RestResponse(true, 200, 'Success');
-
     objectCache = jasmine.createSpyObj('objectCache', {
       remove: jasmine.createSpy('remove'),
-      getByHref: observableOf(responseCacheEntry),
     });
     requestService = getMockRequestService();
     halService = Object.assign(new HALEndpointServiceStub(url));

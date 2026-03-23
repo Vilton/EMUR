@@ -1,124 +1,381 @@
-// :host {
-//   display: block;
-
-//   div.background-image-container {
-//     color: white;
-//     position: relative;
-//     font-weight: 600;
-
-//     .background-image>img {
-//       background-color: var(--bs-info);
-//       position: absolute;
-//       z-index: -1;
-//       top: 0;
-//       left: 0;
-//       width: 100%;
-//       height: 100%;
-//       object-fit: cover;
-//       object-position: top;
-//     }
-
-//     .container {
-//       position: relative;
-//       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-
-//       &:before,
-//       &:after {
-//         content: '';
-//         display: block;
-//         width: var(--ds-banner-background-gradient-width);
-//         height: 100%;
-//         top: 0;
-//         position: absolute;
-//       }
-
-//       &:before {
-//         background: linear-gradient(to left, var(--ds-banner-text-background), transparent);
-//         left: calc(-1 * var(--ds-banner-background-gradient-width));
-
-//       }
-
-//       &:after {
-//         background: linear-gradient(to right, var(--ds-banner-text-background), transparent);
-//         right: calc(-1 * var(--ds-banner-background-gradient-width));
-//       }
-
-//       background-color: var(--ds-banner-text-background);
-//     }
-
-
-//     small.credits {
-//       a {
-//         color: inherit;
-//       }
-
-//       opacity: 0.3;
-//       position: absolute;
-//       right: var(--bs-spacer);
-//       bottom: 0;
-//     }
-//   }
-
-//   .jumbotron {
-//     background-color: transparent;
-//   }
-
-//   a {
-//     color: var(--ds-home-news-link-color);
-
-//     @include hover {
-//       color: var(--ds-home-news-link-hover-color);
-//     }
-//   }
-
-//   .lead {
-//     font-size: 1.25rem;
-//     font-weight: 400;
-//   }
-// }
+/* home-news.component.scss */
+/* 
+ * EFEITOS VISUAIS COM ATRASO DE 1s NO INÍCIO
+ * - Imagem permanece 100% visível por 1 segundo
+ * - Animação inicia após 1s, dura 7s (total 8s)
+ * - Fade: 1s suave
+ * - Sem reset visível
+ * - LOGO FIXO CENTRALIZADO (não animado)
+ */
 
 @import '../../../styles/tokens.scss';
 
-.hero-section {
-  background: transparent;
-  // height: 720px;
-  background-image: url('../../../../../assets/images/emur/heroEmur.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-
-}
-
-.img1 {
-  top: -92px;
-  left: -14px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.legenda_I402-318-284-471 {
-  padding: 16px 24px 16px 24px;
-  top: 830px;
-  left: 1011px;
-  position: absolute;
-  display: flex;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 8px;
-  box-sizing: border-box;
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  margin: 0;
   overflow: hidden;
-  border-radius: 16px;
-  background: #36363099;
+  border-radius: 0;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  /* LOGO CENTRALIZADO (FIXO) */
+  .logo-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+    /* Acima do carrossel (z-index 10) e dos botões */
+    pointer-events: none;
+    /* Permite cliques nos botões abaixo */
+    text-align: center;
+    // width: 280px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+
+    .logo-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      // border-radius: 50%;
+      // background: rgba(0, 0, 0, 0.8);
+      // padding: 30px;
+      box-sizing: border-box;
+    }
+
+    /* Responsivo: reduz tamanho em telas menores */
+    @media (max-width: 768px) {
+      width: 200px;
+    }
+
+    @media (max-width: 480px) {
+      width: 160px;
+    }
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      will-change: opacity, transform, filter;
+
+      &.active {
+        opacity: 1;
+      }
+
+      &.exiting {
+        opacity: 0;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        display: block;
+        transform-origin: center center;
+        will-change: transform, filter;
+      }
+
+      /* Reset para slides inativos */
+      &:not(.active):not(.exiting) img {
+        animation: none !important;
+        transform: scale(1) translate(0, 0) rotate(0deg) !important;
+        filter: none !important;
+      }
+
+      /* EFEITOS COM ATRASO DE 1s */
+      &:nth-child(1) {
+
+        &.active img,
+        &.exiting img {
+          animation: effect-1 7s ease-in-out 1s forwards;
+        }
+      }
+
+      &:nth-child(2) {
+
+        &.active img,
+        &.exiting img {
+          animation: effect-2 7s ease-in-out 1s forwards;
+        }
+      }
+
+      &:nth-child(3) {
+
+        &.active img,
+        &.exiting img {
+          animation: effect-3 7s ease-in-out 1s forwards;
+        }
+      }
+
+      &:nth-child(4) {
+
+        &.active img,
+        &.exiting img {
+          animation: effect-4 7s ease-in-out 1s forwards;
+        }
+      }
+
+      &:nth-child(5) {
+
+        &.active img,
+        &.exiting img {
+          animation: effect-5 7s ease-in-out 1s forwards;
+        }
+      }
+
+      &:nth-child(6) {
+
+        &.active img,
+        &.exiting img {
+          animation: effect-6 7s ease-in-out 1s forwards;
+        }
+      }
+
+      /* Overlay vignette */
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        // background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
+        opacity: 0;
+        transition: opacity 1s ease;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      &.active::before {
+        opacity: 1;
+        animation: vignette 8s ease-in-out infinite;
+      }
+
+      /* Título */
+      .slide-content {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        background: rgba(0, 0, 0, 0.55);
+        color: white;
+        padding: 10px 18px;
+        border-radius: 20px;
+        transform: translateY(25px);
+        opacity: 0;
+        transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) 1.2s;
+        font-family: "ITC Bauhaus";
+        font-weight: 700;
+        font-size: 1.1rem;
+        max-width: 70%;
+        z-index: 2;
+
+        h4 {
+          font-weight: bold;
+          margin: 0;
+          line-height: 1.3;
+          margin: 0;
+          line-height: 1.3;
+        }
+      }
+
+      &.active .slide-content {
+        opacity: 1;
+        transform: translateY(0);
+        animation: title-glow 3s ease-in-out infinite alternate;
+      }
+    }
+  }
+
+  /* Botões */
+  .carousel-btn {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    &.prev {
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &.next {
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &.play-pause {
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      font-size: 22px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: 70vh;
+
+    .slide-content {
+      bottom: 20px;
+      right: 20px;
+      font-size: 0.95rem;
+      padding: 8px 14px;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+  }
 }
 
-.text-recife--retalhos-da-cidade--petr-nio-cunha_I402-318-284-468 {
-  color: $gray-100-color;
-  @include label-l-medium-text;
-  font-weight: 600;
-  text-align: right;
-  text-wrap: nowrap;
+/* EFEITOS */
+@keyframes effect-1 {
+  0% {
+    transform: scale(1) translate(0, 0);
+    filter: brightness(1);
+  }
+
+  50% {
+    transform: scale(1.14) translate(-2%, 1%);
+    filter: brightness(1.15);
+  }
+
+  100% {
+    transform: scale(1.1) translate(1%, -1%);
+    filter: brightness(1.05);
+  }
+}
+
+@keyframes effect-2 {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: sepia(0);
+  }
+
+  50% {
+    transform: scale(1.12) rotate(1.5deg);
+    filter: sepia(0.35);
+  }
+
+  100% {
+    transform: scale(1.08) rotate(-1deg);
+    filter: sepia(0.15);
+  }
+}
+
+@keyframes effect-3 {
+  0% {
+    transform: scale(1) translate(0, 0);
+    filter: blur(0px) contrast(1);
+  }
+
+  50% {
+    transform: scale(1.13) translate(0, -3%);
+    filter: blur(0.8px) contrast(1.2);
+  }
+
+  100% {
+    transform: scale(1.09) translate(0, 1%);
+    filter: blur(0.3px) contrast(1.05);
+  }
+}
+
+@keyframes effect-4 {
+  0% {
+    transform: scale(1) translate(0, 0);
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.1) translate(2%, 2%);
+    filter: hue-rotate(20deg);
+  }
+
+  100% {
+    transform: scale(1.07) translate(-1%, -1%);
+    filter: hue-rotate(10deg);
+  }
+}
+
+@keyframes effect-5 {
+  0% {
+    transform: scale(1) translate(0, 0);
+    filter: saturate(1);
+  }
+
+  50% {
+    transform: scale(1.11) translate(-1.5%, 2.5%);
+    filter: saturate(1.3);
+  }
+
+  100% {
+    transform: scale(1.09) translate(1.5%, -2%);
+    filter: saturate(1.1);
+  }
+}
+
+@keyframes effect-6 {
+  0% {
+    transform: scale(1) translate(0, 0);
+    filter: grayscale(0);
+  }
+
+  50% {
+    transform: scale(1.15) translate(0, 0);
+    filter: grayscale(0.25);
+  }
+
+  100% {
+    transform: scale(1.1) translate(0, 0);
+    filter: grayscale(0.1);
+  }
+}
+
+@keyframes vignette {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes title-glow {
+  0% {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+  }
+
+  100% {
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.9);
+  }
 }

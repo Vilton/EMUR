@@ -18,7 +18,6 @@ describe('ComcolSearchSectionComponent', () => {
 
   beforeEach(async () => {
     route = new ActivatedRouteStub();
-    route.parent = new ActivatedRouteStub();
 
     await TestBed.configureTestingModule({
       imports: [ComcolSearchSectionComponent],

@@ -1,0 +1,29 @@
+h2 {
+    font-family: "ITC Bauhaus";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    /* 41.6px */
+}
+
+.card {
+    width: 16rem;
+    border-radius: 16px;
+    border: 2px solid var(--Gray-600, #66665C);
+    flex: 1 0 0;
+
+    img {
+        border-radius: 14px;
+        border: 2px solid var(--Gray-600, #66665C);
+    }
+
+    p {
+        color: var(--Gray-800, #1B1B18);
+        font-family: "ITC Bauhaus";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%;
+    }
+}

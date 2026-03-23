@@ -139,7 +139,7 @@ export class MenuResolverService {
               model: {
                 type: MenuItemType.LINK,
                 text: `Sobre`,
-                link: `/about`,
+                link: `/info/about`,
               } as LinkMenuItemModel,
             },
             /* Browse */

@@ -8,19 +8,20 @@
   </button>
 </div>
 <div class="modal-body">
-  <ng-container *ngIf="bitstreams$ | async as bitstreams">
+  <ng-container *ngIf="data$ | async as data">
     <ds-viewable-collection
-      *ngIf="bitstreams.payload?.page?.length > 0"
+      *ngIf="data.payload.page.length > 0"
       [config]="paginationConfig"
       [context]="context"
-      [objects]="bitstreams"
+      [objects]="data"
       [selectable]="true"
       [selectionConfig]="{ repeatable: true, listId: LIST_ID }"
-      [showPaginator]="true">
+      [showPaginator]="true"
+      (pageChange)="loadForPage($event)">
     </ds-viewable-collection>
 
-    <div *ngIf="bitstreams && bitstreams.payload?.page?.length === 0"
-         class="alert alert-info w-100" role="alert">
+    <div *ngIf="data && data.payload.page.length === 0"
+      class="alert alert-info w-100" role="alert">
       {{'access-control-select-bitstreams-modal.no-items' | translate}}
     </div>
 

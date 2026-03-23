@@ -23,7 +23,7 @@
     }
   }
 
-  .navbar, div[role="toolbar"] {
+  .navbar {
     display: flex;
     gap: calc(var(--bs-spacer) / 3);
     align-items: center;

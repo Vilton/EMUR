@@ -1,10 +1,5 @@
 import { Config } from './config.interface';
 
-export interface SsrExcludePatterns {
-  pattern: string | RegExp;
-  flag?: string;
-}
-
 export interface SSRConfig extends Config {
   /**
    * A boolean flag indicating whether the SSR configuration is enabled
@@ -44,9 +39,9 @@ export interface SSRConfig extends Config {
   replaceRestUrl: boolean;
 
   /**
-   * Patterns to be used as regexes to match url's path and check if SSR is disabled for it.
+   * Paths to enable SSR for. Defaults to the home page and paths in the sitemap.
    */
-  excludePathPatterns:  SsrExcludePatterns[];
+  paths: Array<string>;
 
   /**
    * Whether to enable rendering of search component on SSR

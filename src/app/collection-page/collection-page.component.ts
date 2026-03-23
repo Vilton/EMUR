@@ -50,6 +50,7 @@ import { ThemedLoadingComponent } from '../shared/loading/themed-loading.compone
 import { ObjectCollectionComponent } from '../shared/object-collection/object-collection.component';
 import { PaginationComponentOptions } from '../shared/pagination/pagination-component-options.model';
 import { VarDirective } from '../shared/utils/var.directive';
+import { ViewTrackerComponent } from '../statistics/angulartics/dspace/view-tracker.component';
 import { getCollectionPageRoute } from './collection-page-routing-paths';
 
 @Component({
@@ -67,6 +68,7 @@ import { getCollectionPageRoute } from './collection-page-routing-paths';
     NgIf,
     ThemedLoadingComponent,
     TranslateModule,
+    ViewTrackerComponent,
     VarDirective,
     AsyncPipe,
     ComcolPageHeaderComponent,

@@ -4,16 +4,14 @@
     {{mdRepresentation.getValue()}}
   </span>
   <a *ngIf="(mdRepresentation.representationType==='plain_text') && isLink()" class="dont-break-out"
-  target="_blank" [href]="mdRepresentation.getValue()" role="link" tabindex="0">
+  target="_blank" [href]="mdRepresentation.getValue()">
     {{mdRepresentation.getValue()}}
   </a>
   <span *ngIf="(mdRepresentation.representationType==='authority_controlled')" class="dont-break-out">{{mdRepresentation.getValue()}}</span>
   <a *ngIf="(mdRepresentation.representationType==='browse_link')"
      class="dont-break-out ds-browse-link"
      [routerLink]="['/browse/', mdRepresentation.browseDefinition.id]"
-     [queryParams]="getQueryParams()"
-     role="link"
-     tabindex="0">
+     [queryParams]="getQueryParams()">
     {{mdRepresentation.getValue()}}
   </a>
 </div>

@@ -1,14 +1,23 @@
 :host {
+
+  .navbar-expand {
+    justify-content: flex-end;
+  }
+
   .nav {
     background-color: transparent;
     border-radius: 10px;
-    background-image: url('../../../../assets/images/emur/navbar.png');
+    background-image: url('../../assets/images/emur/navbar.svg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: round;
     color: #f4edd7 !important;
   }
 
   #main-site-header {
+
+    font-family: "ITC Bauhaus";
+    font-size: x-large;
+    // font-weight: 700;
 
     position: fixed;
     width: 100%;
@@ -20,12 +29,12 @@
       height: var(--ds-header-height);
     }
 
-    // background-color: var(--ds-header-bg);
     background-color: transparent;
 
-    &-container {
-      min-height: var(--ds-header-height);
-    }
+    // &-container {
+    //   min-height: var(--ds-header-height);
+    // }
+
   }
 
   img#header-logo {

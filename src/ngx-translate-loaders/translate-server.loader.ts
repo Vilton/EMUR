@@ -1,4 +1,4 @@
-import { TransferState } from '@angular/core';
+import { TransferState } from '@angular/platform-browser';
 import { TranslateLoader } from '@ngx-translate/core';
 import { readFileSync } from 'fs';
 import {

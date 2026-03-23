@@ -1,5 +1,21 @@
 // node_modules imports meant for all the themes
 
+// Adicione isso no seu arquivo de variáveis, ANTES de importar o Bootstrap
+$spacer: 1rem; // Opcional: confirme o valor base
+
+// Mapa original do Bootstrap (0 a 5)
+$spacers: (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3)) !default;
+
+// Adicione novas entradas (ex: 6 e 7)
+$spacers: map-merge($spacers, (6: ($spacer * 4), 7: ($spacer * 5), 8: ($spacer * 6), 9: ($spacer * 7), )
+);
+
 @import '~node_modules/bootstrap/scss/bootstrap.scss';
 @import '~node_modules/nouislider/dist/nouislider.min';
 @import '~node_modules/ngx-ui-switch/ui-switch.component.scss';

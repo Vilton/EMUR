@@ -23,11 +23,6 @@ export class UploaderOptions {
   maxFileNumber: number;
 
   /**
-   * Impersonating user uuid
-   */
-  impersonatingID: string;
-
-  /**
    * The request method to use for the file upload request
    */
   method: RestRequestMethod = RestRequestMethod.POST;

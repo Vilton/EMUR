@@ -1,5 +1,6 @@
 import {
   AsyncPipe,
+  NgClass,
   NgFor,
   NgIf,
 } from '@angular/common';
@@ -87,6 +88,7 @@ import { ValidateEmailNotTaken } from './validators/email-taken.validator';
     NgFor,
     AsyncPipe,
     TranslateModule,
+    NgClass,
     ThemedLoadingComponent,
     PaginationComponent,
     RouterLink,

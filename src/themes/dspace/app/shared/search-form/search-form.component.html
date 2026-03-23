@@ -1,0 +1,27 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form.value)" action="/search"
+    class="d-flex flex-wrap align-items-center justify-content-center py-4">
+
+    <h2 class="col-12 text-center">
+        {{'research.title' | translate}}
+    </h2>
+
+    <div class="col-12 px-0">
+        <div class="form-group input-group">
+            <div *ngIf="showScopeSelector" class="input-group-prepend">
+                <button class="scope-button btn btn-outline-secondary text-truncate"
+                    [ngbTooltip]="dsoNameService.getName(selectedScope | async)" type="button"
+                    (click)="openScopeModal()">
+                    {{dsoNameService.getName(selectedScope | async) || ('search.form.scope.all' | translate)}}
+                </button>
+            </div>
+            <input type="text" [(ngModel)]="query" name="query" class="form-control"
+                [attr.aria-label]="searchPlaceholder" [attr.data-test]="'search-box' | dsBrowserOnly"
+                [placeholder]="searchPlaceholder">
+            <span class="input-group-append">
+                <button type="submit" class="search-button btn btn-{{brandColor}}"
+                    [attr.data-test]="'search-button' | dsBrowserOnly"><i class="fas fa-search"></i> {{
+                    ('search.form.search' | translate) }}</button>
+            </span>
+        </div>
+    </div>
+</form>

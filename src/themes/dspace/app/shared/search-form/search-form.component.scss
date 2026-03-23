@@ -1,0 +1,34 @@
+// temporary fix for bootstrap 4 beta btn color issue
+.btn-secondary {
+  background-color: var(--bs-input-bg);
+  color: var(--bs-input-color);
+}
+
+.scope-button {
+  max-width: var(--ds-search-form-scope-max-width);
+}
+
+input {
+  border-radius: 16px;
+  border: 1px solid var(--Gray-600, #66665C);
+  background: var(--Primary-Whitish, #FCFAF6);
+  font-size: large;
+  font-weight: bold;
+}
+
+button {
+  border-radius: 16px;
+  border: 1px solid var(--Gray-600, #66665C);
+  background: var(--ds-search-buttom-bg--color);
+  color: var(--Gray-600, #66665C);
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "ITC Bauhaus";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  /* 41.6px */
+}

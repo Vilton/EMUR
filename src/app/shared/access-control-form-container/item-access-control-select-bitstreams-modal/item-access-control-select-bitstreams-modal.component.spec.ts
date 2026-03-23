@@ -23,7 +23,6 @@ import { Bitstream } from '../../../core/shared/bitstream.model';
 import { Item } from '../../../core/shared/item.model';
 import { ObjectCollectionComponent } from '../../object-collection/object-collection.component';
 import { createSuccessfulRemoteDataObject$ } from '../../remote-data.utils';
-import { PaginationServiceStub } from '../../testing/pagination-service.stub';
 import { createPaginatedList } from '../../testing/utils.test';
 import { FollowLinkConfig } from '../../utils/follow-link-config.model';
 import { ItemAccessControlSelectBitstreamsModalComponent } from './item-access-control-select-bitstreams-modal.component';
@@ -38,8 +37,6 @@ describe('ItemAccessControlSelectBitstreamsModalComponent', () => {
     },
   };
 
-  const mockPaginationService = new PaginationServiceStub();
-
   const translateServiceStub = {
     get: () => observableOf('test-message'),
     onLangChange: new EventEmitter(),
@@ -53,7 +50,7 @@ describe('ItemAccessControlSelectBitstreamsModalComponent', () => {
       providers: [
         NgbActiveModal,
         { provide: BitstreamDataService, useValue: mockBitstreamDataService },
-        { provide: PaginationService, useValue: mockPaginationService },
+        { provide: PaginationService, useValue: {} },
         { provide: TranslateService, useValue: translateServiceStub },
       ],
     })

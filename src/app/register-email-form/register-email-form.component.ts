@@ -110,9 +110,13 @@ export class RegisterEmailFormComponent implements OnDestroy, OnInit {
 
   subscriptions: Subscription[] = [];
 
-  captchaVersion$: Observable<string>;
+  captchaVersion(): Observable<string> {
+    return this.googleRecaptchaService.captchaVersion();
+  }
 
-  captchaMode$: Observable<string>;
+  captchaMode(): Observable<string> {
+    return this.googleRecaptchaService.captchaMode();
+  }
 
   constructor(
     private epersonRegistrationService: EpersonRegistrationService,
@@ -134,8 +138,6 @@ export class RegisterEmailFormComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit(): void {
-    this.captchaVersion$ = this.googleRecaptchaService.captchaVersion();
-    this.captchaMode$ = this.googleRecaptchaService.captchaMode();
     const validators: ValidatorFn[] = [
       Validators.required,
       Validators.email,
@@ -192,7 +194,7 @@ export class RegisterEmailFormComponent implements OnDestroy, OnInit {
   register(tokenV2?) {
     if (!this.form.invalid) {
       if (this.registrationVerification) {
-        this.subscriptions.push(combineLatest([this.captchaVersion$, this.captchaMode$]).pipe(
+        this.subscriptions.push(combineLatest([this.captchaVersion(), this.captchaMode()]).pipe(
           switchMap(([captchaVersion, captchaMode])  => {
             if (captchaVersion === 'v3') {
               return this.googleRecaptchaService.getRecaptchaToken('register_email');
@@ -255,7 +257,7 @@ export class RegisterEmailFormComponent implements OnDestroy, OnInit {
    */
   disableUntilCheckedFcn(): Observable<boolean> {
     const checked$ = this.checkboxCheckedSubject$.asObservable();
-    return combineLatest([this.captchaVersion$, this.captchaMode$, checked$]).pipe(
+    return combineLatest([this.captchaVersion(), this.captchaMode(), checked$]).pipe(
       // disable if checkbox is not checked or if reCaptcha is not in v2 checkbox mode
       switchMap(([captchaVersion, captchaMode, checked])  => captchaVersion === 'v2' && captchaMode === 'checkbox' ? of(!checked) : of(false)),
       startWith(true),

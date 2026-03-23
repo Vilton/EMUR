@@ -1,0 +1,23 @@
+<ng-container *ngVar="(communitiesRD$ | async) as communitiesRD">
+  <div *ngIf="communitiesRD?.hasSucceeded" class="py-4">
+
+    <h2 class="text-center">
+      {{'home.top-level-communities.head' | translate}}
+    </h2>
+
+    <div class="d-flex flex-wrap align-items-center justify-content-center gap-4">
+      <span *ngFor="let comunidade of communitiesRD.payload.page">
+        <a [href]="'communities/' + comunidade.uuid" class="card border-primary">
+          <img [src]="comunidade.logo"
+            onerror="this.onerror=null;this.src='/assets/dspace/images/emur/naoDisponivel.svg'" class="m-3">
+          <div class="d-flex flex-wrap align-items-center justify-content-center">
+            <p class="text-center" style="font-size: larger;">{{comunidade.name}}</p>
+          </div>
+        </a>
+      </span>
+    </div>
+
+  </div>
+  <ds-error *ngIf="communitiesRD?.hasFailed " message="{{'error.top-level-communities' | translate}}"></ds-error>
+  <ds-loading *ngIf="communitiesRD?.isLoading " message="{{'loading.top-level-communities' | translate}}"></ds-loading>
+</ng-container>

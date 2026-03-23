@@ -80,12 +80,13 @@ export class OrcidQueueComponent implements OnInit, OnDestroy, OnChanges {
   /**
    * A list of orcid queue records
    */
-  list$: BehaviorSubject<RemoteData<PaginatedList<OrcidQueue>>> = new BehaviorSubject<RemoteData<PaginatedList<OrcidQueue>>>({} as any);
+  private list$: BehaviorSubject<RemoteData<PaginatedList<OrcidQueue>>> = new BehaviorSubject<RemoteData<PaginatedList<OrcidQueue>>>({} as any);
 
   /**
    * The AlertType enumeration
+   * @type {AlertType}
    */
-  readonly AlertTypeEnum = AlertType;
+  AlertTypeEnum = AlertType;
 
   /**
    * Array to track all subscriptions and unsubscribe them onDestroy
@@ -129,6 +130,13 @@ export class OrcidQueueComponent implements OnInit, OnDestroy, OnChanges {
         this.orcidQueueService.clearFindByProfileItemRequests();
       }),
     );
+  }
+
+  /**
+   * Return the list of orcid queue records
+   */
+  getList(): Observable<RemoteData<PaginatedList<OrcidQueue>>> {
+    return this.list$.asObservable();
   }
 
   /**

@@ -54,7 +54,7 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.showCookieSettings = this.appConfig.info.enableCookieConsentPopup;
+    // this.showCookieSettings = this.appConfig.info.enableCookieConsentPopup;
     this.showPrivacyPolicy = this.appConfig.info.enablePrivacyStatement;
     this.showEndUserAgreement = this.appConfig.info.enableEndUserAgreement;
     this.coarLdnEnabled$ = this.appConfig.info.enableCOARNotifySupport ? this.notifyInfoService.isCoarConfigEnabled() : observableOf(false);

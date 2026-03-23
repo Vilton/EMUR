@@ -4,7 +4,6 @@ import { Config } from './config.interface';
  * Community Page Config
  */
 export interface CommunityPageConfig extends Config {
-  defaultBrowseTab: string;
   searchSection: CommunitySearchSectionConfig;
 }
 

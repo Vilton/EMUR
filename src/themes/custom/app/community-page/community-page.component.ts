@@ -25,6 +25,7 @@ import { DsoEditMenuComponent } from '../../../../app/shared/dso-page/dso-edit-m
 import { ErrorComponent } from '../../../../app/shared/error/error.component';
 import { ThemedLoadingComponent } from '../../../../app/shared/loading/themed-loading.component';
 import { VarDirective } from '../../../../app/shared/utils/var.directive';
+import { ViewTrackerComponent } from '../../../../app/statistics/angulartics/dspace/view-tracker.component';
 
 @Component({
   selector: 'ds-themed-community-page',
@@ -49,6 +50,7 @@ import { VarDirective } from '../../../../app/shared/utils/var.directive';
     ComcolPageLogoComponent,
     ComcolPageHeaderComponent,
     AsyncPipe,
+    ViewTrackerComponent,
     VarDirective,
     RouterOutlet,
     RouterModule,

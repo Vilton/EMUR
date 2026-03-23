@@ -52,7 +52,7 @@ import { setPlaceHolderAttributes } from '../../shared/utils/object-list-utils';
 import { VarDirective } from '../../shared/utils/var.directive';
 
 @Component({
-  selector: 'ds-recent-item-list',
+  selector: 'ds-base-recent-item-list',
   templateUrl: './recent-item-list.component.html',
   styleUrls: ['./recent-item-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

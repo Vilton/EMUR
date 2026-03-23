@@ -9,8 +9,7 @@
          role="tab"
          [routerLink]="option.routerLink"
          [queryParams]="option.params"
-         [class.active]="(currentOption$ | async)?.id === option.id"
-         tabindex="0">
+         [class.active]="(currentOption$ | async)?.id === option.id">
         {{ option.label | translate }}
       </a>
     </div>

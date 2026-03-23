@@ -1,10 +1,14 @@
-<header id="main-site-header" style="margin-top: 1rem;">
-  <div class="container h-80 d-flex flex-row align-items-center justify-content-between gapx-3 gapy-2 nav fs-4"
+<header id="main-site-header" class="d-flex flex-wrap align-items-center justify-content-center"
+  style="align-items: center;">
+
+  <div class="container d-flex flex-row align-items-center justify-content-between gapx-3 gapy-2 nav fs-4"
     id="main-site-header-container">
 
     <a class="d-block my-2 my-md-0 ml-3" routerLink="/home" [attr.aria-label]="'home.title' | translate" role="button"
       tabindex="0">
-      <img id="header-logo" src="../../../../assets/images/emur/logoEmur.png" [style.height.px]="60"
+
+      <!-- <img id="header-logo" src="assets/dspace/images/emur/logoEmur.svg" [style.height.%]="100"> -->
+      <img id="header-logo" src="assets/dspace/images/emur/LOGO_EMUR 2.png" [style.height.%]="100"
         [attr.alt]="'menu.header.image.logo' | translate" />
     </a>
 
@@ -41,4 +45,5 @@
     </div>
 
   </div>
+
 </header>

@@ -1,10 +1,7 @@
 <ds-results-back-button *ngIf="showBackButton$ | async" [back]="back"></ds-results-back-button>
 <div class="row" *ngIf="iiifEnabled">
   <div class="col-12">
-    <ds-mirador-viewer id="iiif-viewer"
-                   [object]="object"
-                   [searchable]="iiifSearchEnabled"
-                   [query]="iiifQuery$ | async">
+    <ds-mirador-viewer id="iiif-viewer" [object]="object" [searchable]="iiifSearchEnabled" [query]="iiifQuery$ | async">
     </ds-mirador-viewer>
   </div>
 </div>
@@ -15,6 +12,7 @@
   <ds-dso-edit-menu></ds-dso-edit-menu>
 </div>
 <div class="row">
+
   <div class="col-xs-12 col-md-4">
     <ng-container *ngIf="!(mediaViewer.image || mediaViewer.video)">
       <ds-metadata-field-wrapper [hideIfNoTextContent]="false">
@@ -25,73 +23,105 @@
       <ds-media-viewer [item]="object"></ds-media-viewer>
     </div>
     <ds-item-page-file-section [item]="object"></ds-item-page-file-section>
-    <ds-item-page-date-field [item]="object"></ds-item-page-date-field>
-    <ds-metadata-representation-list class="ds-item-page-mixed-author-field"
-      [parentItem]="object"
-      [itemType]="'Person'"
-      [metadataFields]="['dc.contributor.author', 'dc.creator']"
-      [label]="'relationships.isAuthorOf' | translate">
+    <!-- <ds-item-page-date-field [item]="object"></ds-item-page-date-field> -->
+    <ds-metadata-representation-list class="ds-item-page-mixed-author-field" [parentItem]="object" [itemType]="'Person'"
+      [metadataFields]="['dc.contributor.author', 'dc.creator']" [label]="'relationships.isAuthorOf' | translate">
     </ds-metadata-representation-list>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['journal.title']"
-      [label]="'item.page.journal-title'">
+    <ds-generic-item-page-field [item]="object" [fields]="['journal.title']" [label]="'item.page.journal-title'">
     </ds-generic-item-page-field>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['journal.identifier.issn']"
+    <ds-generic-item-page-field [item]="object" [fields]="['journal.identifier.issn']"
       [label]="'item.page.journal-issn'">
     </ds-generic-item-page-field>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['journalvolume.identifier.name']"
+    <ds-generic-item-page-field [item]="object" [fields]="['journalvolume.identifier.name']"
       [label]="'item.page.volume-title'">
     </ds-generic-item-page-field>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['dc.publisher']"
-      [label]="'item.page.publisher'">
+    <ds-generic-item-page-field [item]="object" [fields]="['dc.publisher']" [label]="'item.page.publisher'">
     </ds-generic-item-page-field>
   </div>
+
   <div class="col-xs-12 col-md-6">
+
     <ds-item-page-abstract-field [item]="object"></ds-item-page-abstract-field>
-    <ds-generic-item-page-field [item]="object"
-      [fields]="['dc.description']"
-      [label]="'item.page.description'">
+
+    <ds-item-page-date-field [item]="object"></ds-item-page-date-field>
+
+    <ds-generic-item-page-field [item]="object" [fields]="['dc.description.eixoDoLivro']" [label]="'Eixo'">
     </ds-generic-item-page-field>
 
-    <ds-generic-item-page-field [item]="object"
+    <ds-generic-item-page-field [item]="object" [fields]="['dc.description.espSistUrbanistico']"
+      [label]="'Especificação do sistema urbanístico'">
+    </ds-generic-item-page-field>
+
+    <ds-generic-item-page-field [item]="object" [fields]="['dc.description.acoesUrbanisticas']"
+      [label]="'Ações urbanísticas'">
+    </ds-generic-item-page-field>
+
+    <ds-generic-item-page-field [item]="object" [fields]="['dc.coverage.RPA']"
+      [label]="'Região Político-Administrativa (RPA)'">
+    </ds-generic-item-page-field>
+
+    <ds-generic-item-page-field [item]="object" [fields]="['dc.coverage.bairro']" [label]="'Bairro'">
+    </ds-generic-item-page-field>
+
+    <ds-generic-item-page-field [item]="object" [fields]="['dc.description.zeis']"
+      [label]="'Zona Especial de Interesse Social (ZEIS)'">
+    </ds-generic-item-page-field>
+
+    <ds-generic-item-page-field [item]="object" [fields]="['dc.coverage.comInteresseSocial']"
+      [label]="'Comunidade de Interesse Social (CIS)'">
+    </ds-generic-item-page-field>
+
+    <!-- <ds-generic-item-page-field [item]="object"
+      [fields]="['dc.description']"
+      [label]="'item.page.description'">
+    </ds-generic-item-page-field> -->
+
+    <!-- <ds-generic-item-page-field [item]="object"
       [fields]="['dc.subject']"
       [separator]="', '"
       [label]="'item.page.subject'">
-    </ds-generic-item-page-field>
-    <ds-generic-item-page-field [item]="object"
+    </ds-generic-item-page-field> -->
+
+    <!-- <ds-generic-item-page-field [item]="object"
       [fields]="['dc.identifier.citation']"
       [label]="'item.page.citation'">
-    </ds-generic-item-page-field>
-    <ds-item-page-uri-field [item]="object"
+    </ds-generic-item-page-field> -->
+
+    <!-- <ds-item-page-uri-field [item]="object"
       [fields]="['dc.identifier.uri']"
       [label]="'item.page.uri'">
-    </ds-item-page-uri-field>
-    <ds-item-page-collections [item]="object"></ds-item-page-collections>
-    <ds-item-page-uri-field [item]="object"
+    </ds-item-page-uri-field> -->
+
+    <!-- <ds-item-page-collections [item]="object"></ds-item-page-collections> -->
+
+    <!-- <ds-item-page-uri-field [item]="object"
       [fields]="['coar.notify.endorsedBy']"
       [label]="'item.page.endorsement'">
-    </ds-item-page-uri-field>
-    <ds-item-page-uri-field [item]="object"
+    </ds-item-page-uri-field> -->
+
+    <!-- <ds-item-page-uri-field [item]="object"
       [fields]="['datacite.relation.isReviewedBy']"
       [label]="'item.page.review'">
-    </ds-item-page-uri-field>
-    <ds-item-page-uri-field [item]="object"
+    </ds-item-page-uri-field> -->
+
+    <!-- <ds-item-page-uri-field [item]="object"
       [fields]="['datacite.relation.isSupplementedBy']"
       [label]="'item.page.supplemented'">
-    </ds-item-page-uri-field>
-    <ds-item-page-uri-field [item]="object"
+    </ds-item-page-uri-field> -->
+
+    <!-- <ds-item-page-uri-field [item]="object"
       [fields]="['datacite.relation.isReferencedBy']"
       [label]="'item.page.referenced'">
-    </ds-item-page-uri-field>
-    <ds-item-page-cc-license-field [item]="object" [variant]="'full'">
-    </ds-item-page-cc-license-field>
+    </ds-item-page-uri-field> -->
+
+    <!-- <ds-item-page-cc-license-field [item]="object" [variant]="'full'">
+    </ds-item-page-cc-license-field> -->
+
     <div>
-      <a class="btn btn-outline-primary" [routerLink]="[itemPageRoute + '/full']" role="button" tabindex="0">
+      <a class="btn btn-outline-primary" [routerLink]="[itemPageRoute + '/full']" role="button">
         <i class="fas fa-info-circle"></i> {{"item.page.link.full" | translate}}
       </a>
     </div>
+
   </div>
 </div>

@@ -7,6 +7,9 @@ import { HeaderComponent } from './app/header/header.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
 import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
 import { NavbarComponent } from './app/navbar/navbar.component';
+import { TopLevelCommunityListComponent } from "./app/home-page/top-level-community-list/top-level-community-list.component";
+import { SearchFormComponent } from './app/shared/search-form/search-form.component';
+import { RecentItemListComponent } from './app/home-page/recent-item-list/recent-item-list.component';
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
@@ -21,6 +24,9 @@ const DECLARATIONS = [
   HeaderNavbarWrapperComponent,
   NavbarComponent,
   FooterComponent,
+  TopLevelCommunityListComponent,
+  SearchFormComponent,
+  RecentItemListComponent,
 ];
 
 @NgModule({

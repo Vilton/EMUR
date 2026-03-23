@@ -1,9 +1,11 @@
 import {
   AsyncPipe,
+  CommonModule,
   NgIf,
 } from '@angular/common';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   Inject,
   OnDestroy,
@@ -12,6 +14,7 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import {
   BehaviorSubject,
+  Observable,
   combineLatest as observableCombineLatest,
   Subscription,
 } from 'rxjs';
@@ -37,10 +40,16 @@ import { ThemedLoadingComponent } from '../../shared/loading/themed-loading.comp
 import { ObjectCollectionComponent } from '../../shared/object-collection/object-collection.component';
 import { PaginationComponentOptions } from '../../shared/pagination/pagination-component-options.model';
 import { VarDirective } from '../../shared/utils/var.directive';
-
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 /**
  * this component renders the Top-Level Community list
  */
+interface Comunidade {
+  logo: string,
+  nome: string,
+  link: string
+}
+
 @Component({
   selector: 'ds-base-top-level-community-list',
   styleUrls: ['./top-level-community-list.component.scss'],
@@ -48,7 +57,7 @@ import { VarDirective } from '../../shared/utils/var.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [fadeInOut],
   standalone: true,
-  imports: [VarDirective, NgIf, ObjectCollectionComponent, ErrorComponent, ThemedLoadingComponent, AsyncPipe, TranslateModule],
+  imports: [VarDirective, NgIf, ObjectCollectionComponent, ErrorComponent, ThemedLoadingComponent, AsyncPipe, TranslateModule, CommonModule, InfiniteScrollModule,],
 })
 
 export class TopLevelCommunityListComponent implements OnInit, OnDestroy {
@@ -81,6 +90,7 @@ export class TopLevelCommunityListComponent implements OnInit, OnDestroy {
     @Inject(APP_CONFIG) protected appConfig: AppConfig,
     private cds: CommunityDataService,
     private paginationService: PaginationService,
+    private cdRef: ChangeDetectorRef
   ) {
     this.config = new PaginationComponentOptions();
     this.config.id = this.pageId;
@@ -109,9 +119,8 @@ export class TopLevelCommunityListComponent implements OnInit, OnDestroy {
           sort: { field: currentSort.field, direction: currentSort.direction },
         });
       }),
-    ).subscribe((results) => {
-      this.communitiesRD$.next(results);
-    });
+    ).subscribe((results) => { this.communitiesRD$.next(results); });
+
   }
 
   /**

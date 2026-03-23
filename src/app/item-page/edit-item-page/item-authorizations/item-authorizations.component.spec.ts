@@ -169,9 +169,17 @@ describe('ItemAuthorizationsComponent test suite', () => {
       }));
     });
 
+    it('should get the item UUID', () => {
+
+      expect(comp.getItemUUID()).toBeObservable(cold('(a|)', {
+        a: item.id,
+      }));
+
+    });
+
     it('should get the item\'s bundle', () => {
 
-      expect(comp.bundles$).toBeObservable(cold('a', {
+      expect(comp.getItemBundles()).toBeObservable(cold('a', {
         a: bundles,
       }));
 

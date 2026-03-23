@@ -163,23 +163,10 @@ export class BitstreamDataService extends IdentifiableDataService<Bitstream> imp
       sendRequest(this.requestService),
       take(1),
     ).subscribe(() => {
-      this.deleteFormatCache(bitstream);
+      this.requestService.removeByHrefSubstring(bitstream.self + '/format');
     });
-    return this.rdbService.buildFromRequestUUID(requestId);
-  }
 
-  private deleteFormatCache(bitstream: Bitstream) {
-    const bitsreamFormatUrl = bitstream.self + '/format';
-    this.requestService.setStaleByHrefSubstring(bitsreamFormatUrl);
-    // Delete also cache by uuid as the format could be cached also there
-    this.objectCache.getByHref(bitsreamFormatUrl).pipe(take(1)).subscribe((cachedRequest) => {
-      if (cachedRequest.requestUUIDs && cachedRequest.requestUUIDs.length > 0){
-        const requestUuid = cachedRequest.requestUUIDs[0];
-        if (this.requestService.hasByUUID(requestUuid)) {
-          this.requestService.setStaleByUUID(requestUuid);
-        }
-      }
-    });
+    return this.rdbService.buildFromRequestUUID(requestId);
   }
 
   /**

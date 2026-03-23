@@ -43,8 +43,4 @@ export class BulkAccessSettingsComponent {
     this.controlForm.reset();
   }
 
-  isFormValid() {
-    return this.controlForm.isValid();
-  }
-
 }
