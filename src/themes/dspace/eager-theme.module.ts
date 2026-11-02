@@ -6,6 +6,8 @@ import { FooterComponent } from './app/footer/footer.component';
 import { HeaderComponent } from './app/header/header.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
 import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
+import { HomePageComponent } from './app/home-page/home-page.component';
+import { RootComponent } from './app/root/root.component';
 import { NavbarComponent } from './app/navbar/navbar.component';
 import { TopLevelCommunityListComponent } from "./app/home-page/top-level-community-list/top-level-community-list.component";
 import { SearchFormComponent } from './app/shared/search-form/search-form.component';
@@ -19,6 +21,8 @@ const ENTRY_COMPONENTS = [];
 
 const DECLARATIONS = [
   ...ENTRY_COMPONENTS,
+  RootComponent,
+  HomePageComponent,
   HomeNewsComponent,
   HeaderComponent,
   HeaderNavbarWrapperComponent,

@@ -1,6 +1,15 @@
-// home-news.component.ts
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  PLATFORM_ID,
+  inject
+} from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { HomeNewsComponent as BaseComponent } from '../../../../../app/home-page/home-news/home-news.component';
 
 interface Slide {
@@ -14,125 +23,154 @@ interface Slide {
   styleUrls: ['./home-news.component.scss'],
   templateUrl: './home-news.component.html',
   standalone: true,
-  imports: [CommonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush, // Otimização: Reduz verificações desnecessárias de mudança
+  imports: [CommonModule, RouterLink, TranslateModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-
-/**
- * Component to render the news section on the home page
- * Instructions:
- * - Gerencia um carrossel com animações Ken Burns e transições fade.
- * - Autoplay controlado via evento animationend para sincronia com duração da animação.
- * - Inicia reproduzindo automaticamente (isPlaying = true).
- * - Direção de animação aleatória por slide para variedade.
- * - Otimizações: Usa trackBy para ngFor, estratégia OnPush para detecção de mudanças, loading="lazy" para imagens.
- */
 export class HomeNewsComponent extends BaseComponent implements OnInit, OnDestroy {
+  currentAnimation = '';
+  previousSlide: number | null = null;
 
-  currentAnimation: string = ''; // Para animação aleatória
-  previousSlide: number | null = null; // Rastreia o slide anterior para manter animação durante fade out
-
-  private animations: string[] = [
+  private readonly animations = [
     'top-left', 'top-right', 'bottom-left', 'bottom-right',
-    'top', 'bottom', 'left', 'right' // Direções de pan para efeito Ken Burns
+    'top', 'bottom', 'left', 'right'
   ];
 
   slides: Slide[] = [
     {
-      image: 'assets/dspace/images/emur/carrossel/01.svg',
-      title: 'Retalhos da Cidade. Petrônio Cunha.',
-      description: 'Recife: Retalhos da Cidade. Petrônio Cunha'
+      image: 'assets/dspace/images/emur/carrossel/RPA1.jpg',
+      title: 'Ilha de Antônio Vaz',
+      description: 'Recife: Ilha de Antônio Vaz'
     },
     {
-      image: 'assets/dspace/images/emur/carrossel/02.svg',
-      title: 'Entrada do Recife, Arrecifes.',
-      description: 'Descrição do segundo slide.'
+      image: 'assets/dspace/images/emur/carrossel/RPA1-2.jpg',
+      title: 'Ilha de Antônio Vaz',
+      description: 'Recife: Ilha de Antônio Vaz'
     },
     {
-      image: 'assets/dspace/images/emur/carrossel/03.svg',
-      title: 'Bairros do Recife, Santo Antônio e São José.',
-      description: 'Descrição do terceiro slide.'
+      image: 'assets/dspace/images/emur/carrossel/RPA2.jpg',
+      title: 'Bairro do Arruda',
+      description: 'Recife: Arruda'
     },
     {
-      image: 'assets/dspace/images/emur/carrossel/04.svg',
-      title: 'Teatro Hermilo Borba Filho.',
-      description: 'Descrição do terceiro slide.'
+      image: 'assets/dspace/images/emur/carrossel/RPA3.jpg',
+      title: 'Morro da Conceição',
+      description: 'Recife: Morro da Conceição'
     },
     {
-      image: 'assets/dspace/images/emur/carrossel/05.svg',
-      title: 'Forte de São João Batista do Brum.',
-      description: 'Descrição do terceiro slide.'
+      image: 'assets/dspace/images/emur/carrossel/RPA4.jpg',
+      title: 'Bairro da Várzea',
+      description: 'Recife: Várzea'
     },
     {
-      image: 'assets/dspace/images/emur/carrossel/06.svg',
-      title: 'Ponte da Boa Vista',
-      description: 'Descrição do terceiro slide.'
+      image: 'assets/dspace/images/emur/carrossel/RPA5.jpg',
+      title: 'Bairro do Jiquiá (Torre do Zeppelin)',
+      description: 'Recife: Jiquiá (Torre do Zeppelin)'
+    },
+    {
+      image: 'assets/dspace/images/emur/carrossel/RPA6.jpg',
+      title: 'Bairro de Boa Viagem',
+      description: 'Recife: Boa Viagem'
+    },
+    {
+      image: 'assets/dspace/images/emur/carrossel/RPA6-1.jpg',
+      title: 'Bairro de Brasília Teimosa',
+      description: 'Recife: Brasília Teimosa'
+    },
+    {
+      image: 'assets/dspace/images/emur/carrossel/RPA6-2.jpg',
+      title: 'Bairro do Ibura (Morros da Zona Sul)',
+      description: 'Recife: Ibura (Morros da Zona Sul)'
     }
   ];
 
   currentSlide = 0;
-  isPlaying = true; // Inicia com autoplay rodando
+  isPlaying = true;
+
+  private readonly changeDetector = inject(ChangeDetectorRef);
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly slideDuration = 8000;
+  private autoplayTimer: ReturnType<typeof setTimeout> | null = null;
+  private fadeTimer: ReturnType<typeof setTimeout> | null = null;
 
   ngOnInit(): void {
-    this.randomizeAnimation(); // Define animação inicial para o primeiro slide
-    // Força detecção de mudança para aplicar classes iniciais
-    setTimeout(() => {
-      this.currentSlide = 0;
-    }, 0);
+    this.randomizeAnimation();
+    this.scheduleNextSlide();
   }
 
   ngOnDestroy(): void {
-    // Limpeza opcional, mantido para boas práticas
-  }
-
-  onAnimationEnd(): void {
-    if (this.isPlaying) {
-      this.next();
+    this.clearAutoplay();
+    if (this.fadeTimer !== null) {
+      clearTimeout(this.fadeTimer);
+      this.fadeTimer = null;
     }
   }
 
   next(): void {
-    this.previousSlide = this.currentSlide; // Mantém o slide anterior para continuar animação durante fade
-    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-    this.randomizeAnimation();
-    // Remove a classe exiting após o tempo de fade (1s), permitindo reset enquanto invisível
-    setTimeout(() => {
-      this.previousSlide = null;
-    }, 1000);
+    this.changeSlide(1);
   }
 
   prev(): void {
-    this.previousSlide = this.currentSlide;
-    this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-    this.randomizeAnimation();
-    setTimeout(() => {
-      this.previousSlide = null;
-    }, 1000);
+    this.changeSlide(-1);
   }
 
   togglePlay(): void {
     this.isPlaying = !this.isPlaying;
     if (this.isPlaying) {
-      // Avança se a animação já terminou ao resumir
-      if (!this.isAnimationRunning()) {
-        this.next();
-      }
+      this.scheduleNextSlide();
+    } else {
+      this.clearAutoplay();
+    }
+    this.changeDetector.markForCheck();
+  }
+
+  private changeSlide(direction: number): void {
+    this.clearAutoplay();
+    if (this.slides.length < 2) {
+      return;
+    }
+    if (this.fadeTimer !== null) {
+      clearTimeout(this.fadeTimer);
+    }
+    this.previousSlide = this.currentSlide;
+    this.currentSlide = (
+      this.currentSlide + direction + this.slides.length
+    ) % this.slides.length;
+    this.randomizeAnimation();
+    this.changeDetector.markForCheck();
+
+    this.fadeTimer = setTimeout(() => {
+      this.previousSlide = null;
+      this.fadeTimer = null;
+      this.changeDetector.markForCheck();
+    }, 1000);
+    this.scheduleNextSlide();
+  }
+
+  private scheduleNextSlide(): void {
+    this.clearAutoplay();
+    // No SSR o timer recursivo impede a renderizacao de terminar
+    if (!isPlatformBrowser(this.platformId) || !this.isPlaying || this.slides.length < 2) {
+      return;
+    }
+    this.autoplayTimer = setTimeout(() => {
+      this.autoplayTimer = null;
+      this.next();
+    }, this.slideDuration);
+  }
+
+  private clearAutoplay(): void {
+    if (this.autoplayTimer !== null) {
+      clearTimeout(this.autoplayTimer);
+      this.autoplayTimer = null;
     }
   }
 
   private randomizeAnimation(): void {
-    const randomIndex = Math.floor(Math.random() * this.animations.length);
-    this.currentAnimation = this.animations[randomIndex];
+    const index = Math.floor(Math.random() * this.animations.length);
+    this.currentAnimation = this.animations[index];
   }
 
-  // Função auxiliar para verificar se animação está em execução (pode ser expandida com ViewChild se necessário)
-  private isAnimationRunning(): boolean {
-    return true; // Assumir em execução para simplicidade
-  }
-
-  // trackBy para otimizar ngFor, evitando re-renderizações desnecessárias
   trackBySlide(index: number, slide: Slide): string {
-    return slide.image; // Usa caminho da imagem como identificador único
+    return slide.image;
   }
-
 }

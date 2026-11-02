@@ -3183,7 +3183,7 @@
   "research.title": "Pesquisa",
 
   // "home.top-level-communities.head": "Communities in EMUR",
-  "home.top-level-communities.head": "Comunidades na EMUR",
+  "home.top-level-communities.head": "Temáticas da EMUR",
 
   // "home.top-level-communities.help": "Select a community to browse its collections.",
   "home.top-level-communities.help": "Selecione uma comunidade para navegar por suas coleções",
@@ -4869,7 +4869,7 @@
   "menu.section.browse_global_by_title": "Por Título",
 
   // "menu.section.browse_global_communities_and_collections": "Communities & Collections",
-  "menu.section.browse_global_communities_and_collections": "Comunidades & Coleções",
+  "menu.section.browse_global_communities_and_collections": "Comunidades",
 
   // "menu.section.control_panel": "Control Panel",
   "menu.section.control_panel": "Painel de Controle",
@@ -5059,6 +5059,12 @@
 
   // "menu.section.workflow": "Administer Workflow",
   "menu.section.workflow": "Administrar Fluxo de Trabalho",
+
+  //"menu.section.about": "About",
+  "menu.section.about": "Sobre",
+
+  //"menu.section.contact": "Contact Us",
+  "menu.section.contact": "Contato",
 
   // "metadata-export-search.tooltip": "Export search results as CSV",
   "metadata-export-search.tooltip": "Exportar resultados de pesquisa como CSV",
@@ -9590,6 +9596,7 @@
 
   // "menu.section.services_new": "LDN Service",
   "menu.section.services_new": "Serviços LDN",
+
 
   // "quality-assurance.topics.description-with-target": "Below you can see all the topics received from the subscriptions to {{source}} in regards to the",
   "quality-assurance.topics.description-with-target": "Abaixo, você pode ver todos os tópicos recebidos das assinaturas para {{source}} em relação ao",

@@ -1,113 +1,279 @@
 @import '../../styles/tokens.scss';
 
-:host {
-  footer {
-    background-color: #ECECEA;
-    text-align: center;
-    z-index: var(--ds-footer-z-index);
-    border-top: var(--ds-footer-border);
-    padding: var(--ds-footer-padding);
+.emur-footer {
+  padding: 20px clamp(12px, 4.5vw, 90px);
+  background-color: transparent;
+}
 
-    p {
-      margin: 0;
-    }
+.emur-footer__content {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 40px);
 
-    .text-footer {
-      color: $primary-subtle-color;
-      @include body-p-medium-text;
-      font-weight: 400;
-      text-align: left;
-      text-wrap: wrap;
-      width: -webkit-fill-available;
-    }
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1800px;
+  height: 100px;
+  max-height: 100px;
+  margin: 0 auto;
+  padding: 8px 20px;
 
-    div>img {
-      height: calc(var(--ds-footer-logo-height) * 1.2);
-    }
+  border: 2px solid #D6B13D;
+  border-radius: 18px;
+  background-color: #FAF8F0;
+}
 
-    .top-footer {
-      background: #1B1B18;
-      padding: var(--ds-footer-padding);
-      margin: calc(var(--ds-footer-padding) * -1);
-    }
+.emur-footer__logo {
+  display: block;
+  flex-shrink: 0;
+  width: auto;
+  height: 100%;
+  max-width: 120px;
+  object-fit: contain;
+}
 
-    .left-footer {
-      background-image: url('../../assets/images/emur/textura-linhas.svg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      max-height: 230px;
-    }
+.emur-footer__text {
+  flex: 1;
+  min-width: 0;
+  color: #d5af32;
+  font-size: clamp(11px, 1.15vw, 18px);
+  line-height: 1.15;
+}
 
-    .right-footer {
-      background-image: url('../../assets/images/emur/textura-linhas.svg');
-      transform: rotate(180deg);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      max-height: 230px;
-    }
+.emur-footer__text p {
+  margin: 0 0 8px;
+  color: #bd9000;
+}
 
-    .right-footer-text {
-      text-align: right;
-      color: #f4edd7;
-      font-family: BR Omny;
-      font-style: Regular;
-      font-size: 18px;
-      letter-spacing: 0%;
-      line-height: 150%;
-      text-decoration-line: underline;
-      transform: rotate(180deg);
-    }
+.emur-footer__text strong {
+  display: block;
+  font-weight: 700;
+}
 
-    .bottom-footer {
-      .notify-enabled {
-        position: absolute;
-        bottom: 4px;
-        right: 0;
+.emur-footer__partners {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(6px, 1vw, 20px);
 
-        .coar-notify-support-route {
-          padding: 0 calc(var(--bs-spacer) / 2);
-          color: inherit;
-        }
+  min-width: 0;
+  height: 100%;
+  flex: 0 1 40%;
+}
 
-        .n-coar {
-          height: var(--ds-footer-n-coar-height);
-          margin-bottom: 8.5px;
-        }
+.emur-footer__partners img {
+  display: block;
+  flex: 0 1 auto;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  max-width: 20%;
+  max-height: 100%;
+  object-fit: contain;
+}
 
-        margin-top: 20px;
-      }
+@media (max-width: 576px) {
+  .emur-footer {
+    padding: 12px 8px;
+  }
 
-      ul {
-        li {
-          display: inline-flex;
+  .emur-footer__content {
+    gap: 8px;
+    padding: 8px;
+    border-radius: 12px;
+  }
 
-          a,
-          .btn-link {
-            padding: 0 calc(var(--bs-spacer) / 2);
-            color: inherit;
-            font-size: .875em;
+  .emur-footer__logo {
+    max-width: 55px;
+  }
 
-            &:focus {
-              box-shadow: none;
-              text-decoration: underline;
-            }
+  .emur-footer__text {
+    font-size: 10px;
+  }
 
-            &:focus-visible {
-              box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
-            }
-          }
+  .emur-footer__text p {
+    margin-bottom: 5px;
+  }
 
-          &:not(:last-child) {
-            &:after {
-              content: '';
-              border-right: 1px var(--bs-secondary) solid;
-            }
+  .emur-footer__partners {
+    gap: 4px;
+    flex-basis: 38%;
+  }
 
-          }
-        }
-      }
-    }
+  .emur-footer__partners img {
+    max-width: calc((100% - 16px) / 5);
   }
 }
+
+.emur-footer__logo-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex: 0 0 auto;
+  max-width: none;
+}
+
+.emur-footer__logo {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+}
+
+.emur-footer__partners {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  height: 100%;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.emur-footer__partners a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  height: 100%;
+}
+
+.emur-footer__partners a img {
+  display: block;
+  flex: initial;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+// :host {
+//   footer {
+
+//     background-color: #FFFFFF;
+//     height: 100px;
+//     text-align: center;
+//     z-index: var(--ds-footer-z-index);
+//     border-top: var(--ds-footer-border);
+//     padding: var(--ds-footer-padding);
+
+
+//     .container img {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//     }
+
+//     p {
+//       margin: 0;
+//     }
+
+//     .text-footer {
+//       color: $primary-subtle-color;
+//       @include body-p-medium-text;
+//       font-weight: 400;
+//       text-align: left;
+//       text-wrap: wrap;
+//       width: -webkit-fill-available;
+//     }
+
+//     div>img {
+//       // height: calc(var(--ds-footer-logo-height) * 1.2);
+//     }
+
+//     .top-footer {
+//       // background: #F8F8F0;
+//       padding: var(--ds-footer-padding);
+//       margin: calc(var(--ds-footer-padding) * -1);
+//     }
+
+//     .left-footer {
+//       // background-image: url('../../assets/images/emur/textura-linhas.svg');
+//       background-color: transparent;
+//       background-size: cover;
+//       background-position: center;
+//       background-repeat: no-repeat;
+
+//       img {
+//         height: auto;
+//         object-fit: contain;
+//       }
+
+//     }
+
+//     .right-footer {
+//       // background-image: url('../../assets/images/emur/textura-linhas.svg');
+//       // transform: rotate(180deg);
+//       background-size: cover;
+//       // background-position: center;
+//       // background-repeat: no-repeat;
+//       // max-height: 230px;
+//     }
+
+//     .right-footer-text {
+//       text-align: right;
+//       color: #f4edd7;
+//       font-family: BR Omny;
+//       font-style: Regular;
+//       font-size: 18px;
+//       letter-spacing: 0%;
+//       line-height: 150%;
+//       text-decoration-line: underline;
+//       transform: rotate(180deg);
+//     }
+
+//     .bottom-footer {
+//       .notify-enabled {
+//         position: absolute;
+//         bottom: 4px;
+//         right: 0;
+
+//         .coar-notify-support-route {
+//           padding: 0 calc(var(--bs-spacer) / 2);
+//           color: inherit;
+//         }
+
+//         .n-coar {
+//           height: var(--ds-footer-n-coar-height);
+//           margin-bottom: 8.5px;
+//         }
+
+//         margin-top: 20px;
+//       }
+
+//       ul {
+//         li {
+//           display: inline-flex;
+
+//           a,
+//           .btn-link {
+//             padding: 0 calc(var(--bs-spacer) / 2);
+//             color: inherit;
+//             font-size: .875em;
+
+//             &:focus {
+//               box-shadow: none;
+//               text-decoration: underline;
+//             }
+
+//             &:focus-visible {
+//               box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+//             }
+//           }
+
+//           &:not(:last-child) {
+//             &:after {
+//               content: '';
+//               border-right: 1px var(--bs-secondary) solid;
+//             }
+
+//           }
+//         }
+//       }
+//     }
+
+//   }
+// }

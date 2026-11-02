@@ -1,0 +1,39 @@
+#skip-to-main-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: calc(var(--ds-nav-z-index) + 1);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+
+  &:focus {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+// Sticky is on the outer container, so the whole page defines its scroll range.
+.home-hero {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.site-navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: var(--ds-nav-z-index, 99);
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+main.home-main {
+  margin-top: 0;
+  padding-top: 0;
+}

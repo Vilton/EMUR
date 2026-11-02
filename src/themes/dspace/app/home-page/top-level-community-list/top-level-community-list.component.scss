@@ -1,29 +1,98 @@
-h2 {
-    font-family: "ITC Bauhaus";
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 130%;
-    /* 41.6px */
+:host {
+  display: block;
 }
 
-.card {
-    width: 16rem;
-    border-radius: 16px;
-    border: 2px solid var(--Gray-600, #66665C);
-    flex: 1 0 0;
+.emur-themes {
+  padding: clamp(64px, 7vw, 112px) 0 clamp(48px, 6vw, 96px);
+  color: #66665c;
+  font-family: inherit;
+}
 
-    img {
-        border-radius: 14px;
-        border: 2px solid var(--Gray-600, #66665C);
-    }
+// Mesmo espaçamento título → conteúdo usado em "Submissões Recentes"
+.emur-themes-title {
+  margin: 0 0 2.5rem;
+  color: inherit;
+  font-family: inherit;
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+}
 
-    p {
-        color: var(--Gray-800, #1B1B18);
-        font-family: "ITC Bauhaus";
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 130%;
-    }
+.emur-themes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: clamp(12px, 2vw, 32px);
+  row-gap: clamp(40px, 5vw, 80px);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.emur-theme {
+  min-width: 0;
+}
+
+.emur-theme-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    color: #9f822d;
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #d6b13d;
+    outline-offset: 8px;
+    border-radius: 4px;
+  }
+}
+
+.emur-theme-image {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  // Encosta a imagem no topo da caixa quadrada, para não sobrar
+  // espaço vazio entre o título e a miniatura em imagens não quadradas
+  object-position: center top;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.emur-theme-name {
+  width: 100%;
+  max-width: 350px;
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: clamp(16px, 2vw, 28px);
+  font-weight: 900;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 575px) {
+  .emur-theme-link {
+    gap: 3px;
+  }
+
+  .emur-theme-name {
+    font-size: clamp(12px, 3vw, 16px);
+  }
 }

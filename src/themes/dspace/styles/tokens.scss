@@ -59,7 +59,7 @@ $gray-100-background: #f9f9f9;
 $gray-100-color: #f9f9f9;
 
 @mixin heading-h-1-text {
-    font-family: ITC Bauhaus;
+    // font-family: ITC Bauhaus;
     font-style: Bold;
     font-size: 48px;
     letter-spacing: 0%;
@@ -69,7 +69,7 @@ $gray-100-color: #f9f9f9;
 }
 
 @mixin heading-h-2-text {
-    font-family: ITC Bauhaus;
+    // font-family: ITC Bauhaus;
     font-style: Bold;
     font-size: 32px;
     letter-spacing: 0%;
@@ -79,7 +79,7 @@ $gray-100-color: #f9f9f9;
 }
 
 @mixin heading-h-3-text {
-    font-family: ITC Bauhaus;
+    // font-family: ITC Bauhaus;
     font-style: Bold;
     font-size: 24px;
     letter-spacing: 0%;
@@ -89,7 +89,7 @@ $gray-100-color: #f9f9f9;
 }
 
 @mixin heading-h-4-text {
-    font-family: ITC Bauhaus;
+    // font-family: ITC Bauhaus;
     font-style: Bold;
     font-size: 20px;
     letter-spacing: 0%;
@@ -99,7 +99,7 @@ $gray-100-color: #f9f9f9;
 }
 
 @mixin body-p-large-text {
-    font-family: BR Omny;
+    // font-family: BR Omny;
     font-style: Regular;
     font-size: 24px;
     letter-spacing: 0%;
@@ -109,7 +109,7 @@ $gray-100-color: #f9f9f9;
 }
 
 @mixin body-p-medium-text {
-    font-family: BR Omny;
+    // font-family: BR Omny;
     font-style: Regular;
     font-size: 18px;
     letter-spacing: 0%;
@@ -119,7 +119,7 @@ $gray-100-color: #f9f9f9;
 }
 
 @mixin body-p-normal-text {
-    font-family: BR Omny;
+    // font-family: BR Omny;
     font-style: Regular;
     font-size: 16px;
     letter-spacing: 0%;
@@ -129,7 +129,7 @@ $gray-100-color: #f9f9f9;
 }
 
 @mixin body-p-small-text {
-    font-family: BR Omny;
+    // font-family: BR Omny;
     font-style: Regular;
     font-size: 14px;
     letter-spacing: 0%;
@@ -139,7 +139,7 @@ $gray-100-color: #f9f9f9;
 }
 
 @mixin label-l-medium-text {
-    font-family: BR Omny;
+    // font-family: BR Omny;
     font-style: SemiBold;
     font-size: 18px;
     letter-spacing: -3%;
@@ -149,7 +149,7 @@ $gray-100-color: #f9f9f9;
 }
 
 @mixin label-l-normal-text {
-    font-family: BR Omny;
+    // font-family: BR Omny;
     font-style: SemiBold;
     font-size: 16px;
     letter-spacing: -3%;
@@ -159,7 +159,7 @@ $gray-100-color: #f9f9f9;
 }
 
 @mixin label-l-small-text {
-    font-family: BR Omny;
+    // font-family: BR Omny;
     font-style: SemiBold;
     font-size: 14px;
     letter-spacing: -3%;

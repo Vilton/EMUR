@@ -1,24 +1,26 @@
 <ng-container *ngVar="(itemRD$ | async) as itemRD">
-        <div class="py-4" [ngClass]="placeholderFontClass"
-                *ngIf="itemRD?.hasSucceeded && itemRD?.payload?.page.length > 0" @fadeIn>
-                <!-- <div class="d-flex flex-row border-bottom mb-4 pb-4"></div> -->
-                <!-- <h2> {{'home.recent-submissions.head' | translate}}</h2> -->
-                <!-- <div class="my-4" *ngFor="let item of itemRD?.payload?.page">
-                        <ds-listable-object-component-loader [object]="item" [viewMode]="viewMode" class="pb-4">
-                        </ds-listable-object-component-loader>
-                </div> -->
+  <section class="recent-items py-4" [ngClass]="placeholderFontClass"
+           *ngIf="itemRD?.hasSucceeded && itemRD?.payload?.page.length > 0" @fadeIn>
 
-                <h2 class="col-12 text-center">{{'home.recent-submissions.head' | translate}} </h2>
+    <h2 class="recent-items__heading">{{ 'home.recent-submissions.head' | translate }}</h2>
 
-                <div class="my-4" *ngFor="let item of itemRD?.payload?.page">
-                        <ds-listable-object-component-loader [object]="item" [viewMode]="viewMode" class="pb-4">
-                        </ds-listable-object-component-loader>
-                </div>
+    <div class="recent-items__grid">
+      <a class="recent-item-card"
+         *ngFor="let item of itemRD?.payload?.page; trackBy: trackById"
+         [routerLink]="itemRoute(item)">
+        <span class="recent-item-card__title">{{ itemTitle(item) }}</span>
+        <span class="recent-item-card__date" *ngIf="itemDate(item)">({{ itemDate(item) }})</span>
+        <span class="recent-item-card__abstract" *ngIf="itemAbstract(item)">{{ itemAbstract(item) }}</span>
+      </a>
+    </div>
 
-                <button (click)="onLoadMore()" class="btn btn-primary search-button mt-4">
-                        {{'vocabulary-treeview.load-more' | translate }} ...</button>
-        </div>
-        <ds-error *ngIf="itemRD?.hasFailed" message="{{'error.recent-submissions' | translate}}"></ds-error>
-        <ds-loading *ngIf="!itemRD || itemRD.isLoading" message="{{'loading.recent-submissions' | translate}}">
-        </ds-loading>
+    <div class="recent-items__more">
+      <button type="button" (click)="onLoadMore()" class="btn btn-primary search-button">
+        {{ 'vocabulary-treeview.load-more' | translate }} ...
+      </button>
+    </div>
+  </section>
+
+  <ds-error *ngIf="itemRD?.hasFailed" message="{{ 'error.recent-submissions' | translate }}"></ds-error>
+  <ds-loading *ngIf="!itemRD || itemRD.isLoading" message="{{ 'loading.recent-submissions' | translate }}"></ds-loading>
 </ng-container>

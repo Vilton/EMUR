@@ -5087,6 +5087,12 @@
   // "menu.section.workflow": "Administer Workflow",
   "menu.section.workflow": "Administrar flujo de trabajo",
 
+  //"menu.section.about": "About",
+  "menu.section.about": "Acerca de",
+
+  //"menu.section.contact": "Contact Us",
+  "menu.section.contact": "Contacto",
+
   // "metadata-export-search.tooltip": "Export search results as CSV",
   "metadata-export-search.tooltip": "Exportar los resultados de búsqueda a CSV",
 

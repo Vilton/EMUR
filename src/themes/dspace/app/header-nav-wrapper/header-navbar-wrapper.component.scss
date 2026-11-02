@@ -1,4 +1,6 @@
 :host {
+  display: block;
+  width: 100%;
   // --ds-header-navbar-border-bottom-style: solid var(--ds-header-navbar-border-bottom-height) var(--ds-header-navbar-border-bottom-color);
   // --ds-expandable-navbar-border-top-style: solid var(--ds-expandable-navbar-border-top-height) var(--ds-expandable-navbar-border-top-color);
   --ds-expandable-navbar-height: calc(100vh - var(--ds-header-height));
@@ -8,10 +10,19 @@
     position: relative; // required by the mobile collapsible navbar
     border-bottom: var(--ds-header-navbar-border-bottom-style); // gets covered by mobile navbar wrapper, when open
 
+    > ds-header {
+      display: block;
+      flex: 1 1 auto;
+      width: 100%;
+      min-width: 0;
+    }
+
     div#mobile-navbar-wrapper {
       width: 100%;
       background-color: var(--ds-expandable-navbar-bg);
       position: absolute;
+      top: 100%;
+      left: 0;
       z-index: var(--ds-nav-z-index);
       overflow: hidden;
 

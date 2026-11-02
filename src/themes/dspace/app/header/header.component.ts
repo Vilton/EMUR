@@ -5,8 +5,10 @@ import {
 import {
   Component,
   OnInit,
+  inject,
 } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { SearchService } from '../../../../app/core/shared/search/search.service';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
@@ -15,7 +17,6 @@ import { ThemedLangSwitchComponent } from 'src/app/shared/lang-switch/themed-lan
 import { ContextHelpToggleComponent } from '../../../../app/header/context-help-toggle/context-help-toggle.component';
 import { HeaderComponent as BaseComponent } from '../../../../app/header/header.component';
 import { ThemedNavbarComponent } from '../../../../app/navbar/themed-navbar.component';
-import { ThemedSearchNavbarComponent } from '../../../../app/search-navbar/themed-search-navbar.component';
 import { ThemedAuthNavMenuComponent } from '../../../../app/shared/auth-nav-menu/themed-auth-nav-menu.component';
 import { ImpersonateNavbarComponent } from '../../../../app/shared/impersonate-navbar/impersonate-navbar.component';
 
@@ -27,10 +28,19 @@ import { ImpersonateNavbarComponent } from '../../../../app/shared/impersonate-n
   styleUrls: ['header.component.scss'],
   templateUrl: 'header.component.html',
   standalone: true,
-  imports: [NgbDropdownModule, ThemedLangSwitchComponent, RouterLink, ThemedSearchNavbarComponent, ContextHelpToggleComponent, ThemedAuthNavMenuComponent, ImpersonateNavbarComponent, ThemedNavbarComponent, TranslateModule, AsyncPipe, NgIf],
+  imports: [NgbDropdownModule, ThemedLangSwitchComponent, RouterLink, ContextHelpToggleComponent, ThemedAuthNavMenuComponent, ImpersonateNavbarComponent, ThemedNavbarComponent, TranslateModule, AsyncPipe, NgIf],
 })
 export class HeaderComponent extends BaseComponent implements OnInit {
   public isNavBarCollapsed$: Observable<boolean>;
+  private readonly navbarRouter = inject(Router);
+  private readonly navbarSearchService = inject(SearchService);
+
+  submitNavbarSearch(event: Event, query: string): void {
+    event.preventDefault();
+    void this.navbarRouter.navigate([this.navbarSearchService.getSearchLink()], {
+      queryParams: { query: query.trim() },
+    });
+  }
 
   ngOnInit() {
     super.ngOnInit();

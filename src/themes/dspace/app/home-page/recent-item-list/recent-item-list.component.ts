@@ -14,6 +14,7 @@ import {
   OnInit,
   PLATFORM_ID,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
@@ -29,23 +30,17 @@ import { Item } from 'src/app/core/shared/item.model';
 import { toDSpaceObjectListRD } from 'src/app/core/shared/operators';
 import { SearchService } from 'src/app/core/shared/search/search.service';
 import { SearchConfigurationService } from 'src/app/core/shared/search/search-configuration.service';
-import { ViewMode } from 'src/app/core/shared/view-mode.model';
+import { getItemPageRoute } from 'src/app/item-page/item-page-routing-paths';
 import {
   fadeIn,
   fadeInOut,
 } from 'src/app/shared/animations/fade';
 import { ErrorComponent } from 'src/app/shared/error/error.component';
 import { ThemedLoadingComponent } from 'src/app/shared/loading/themed-loading.component';
-import { ListableObjectComponentLoaderComponent } from 'src/app/shared/object-collection/shared/listable-object/listable-object-component-loader.component';
 import { PaginationComponentOptions } from 'src/app/shared/pagination/pagination-component-options.model';
 import { PaginatedSearchOptions } from 'src/app/shared/search/models/paginated-search-options.model';
-import {
-  followLink,
-  FollowLinkConfig,
-} from 'src/app/shared/utils/follow-link-config.model';
 import { setPlaceHolderAttributes } from 'src/app/shared/utils/object-list-utils';
 import { VarDirective } from 'src/app/shared/utils/var.directive';
-import { APP_CONFIG, AppConfig } from 'src/config/app-config.interface';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -58,18 +53,12 @@ import { environment } from 'src/environments/environment';
     fadeInOut,
   ],
   standalone: true,
-  imports: [VarDirective, NgIf, NgClass, NgFor, ListableObjectComponentLoaderComponent, ErrorComponent, ThemedLoadingComponent, AsyncPipe, TranslateModule],
+  imports: [VarDirective, NgIf, NgClass, NgFor, RouterLink, ErrorComponent, ThemedLoadingComponent, AsyncPipe, TranslateModule],
 })
 export class RecentItemListComponent implements OnInit, OnDestroy {
   itemRD$: Observable<RemoteData<PaginatedList<Item>>>;
   paginationConfig: PaginationComponentOptions;
   sortConfig: SortOptions;
-
-  /**
- * The view-mode we're currently on
- * @type {ViewMode}
- */
-  viewMode = ViewMode.ListElement;
 
   private _placeholderFontClass: string;
 
@@ -78,10 +67,8 @@ export class RecentItemListComponent implements OnInit, OnDestroy {
     private paginationService: PaginationService,
     public searchConfigurationService: SearchConfigurationService,
     protected elementRef: ElementRef,
-    @Inject(APP_CONFIG) private appConfig: AppConfig,
     @Inject(PLATFORM_ID) private platformId: any,
   ) {
-
     this.paginationConfig = Object.assign(new PaginationComponentOptions(), {
       id: 'hp',
       pageSize: environment.homePage.recentSubmissions.pageSize,
@@ -90,31 +77,19 @@ export class RecentItemListComponent implements OnInit, OnDestroy {
     });
     this.sortConfig = new SortOptions(environment.homePage.recentSubmissions.sortField, SortDirection.DESC);
   }
-  ngOnInit(): void {
-    const linksToFollow: FollowLinkConfig<Item>[] = [];
-    if (this.appConfig.browseBy.showThumbnails) {
-      linksToFollow.push(followLink('thumbnail'));
-    }
-    if (this.appConfig.item.showAccessStatuses) {
-      linksToFollow.push(followLink('accessStatus'));
-    }
 
+  ngOnInit(): void {
+    // Os cards não exibem miniatura nem status de acesso,
+    // então não é preciso seguir esses links (menos requisições à API).
     this.itemRD$ = this.searchService.search(
       new PaginatedSearchOptions({
         pagination: this.paginationConfig,
         dsoTypes: [DSpaceObjectType.ITEM],
         sort: this.sortConfig,
       }),
-      undefined,
-      undefined,
-      undefined,
-      ...linksToFollow,
     ).pipe(
       toDSpaceObjectListRD(),
     ) as Observable<RemoteData<PaginatedList<Item>>>;
-
-    console.log(this.itemRD$.forEach(e => console.log(e)));
-
   }
 
   ngOnDestroy(): void {
@@ -127,6 +102,30 @@ export class RecentItemListComponent implements OnInit, OnDestroy {
       sortDirection: 'DESC' as SortDirection,
       page: 1,
     });
+  }
+
+  /** Rota da página do item */
+  itemRoute(item: Item): string {
+    return getItemPageRoute(item);
+  }
+
+  /** Título do item */
+  itemTitle(item: Item): string {
+    return item.firstMetadataValue('dc.title');
+  }
+
+  /** Data de publicação (dc.date.issued) */
+  itemDate(item: Item): string {
+    return item.firstMetadataValue('dc.date.issued');
+  }
+
+  /** Resumo: usa dc.description.abstract e, se não houver, dc.description */
+  itemAbstract(item: Item): string {
+    return item.firstMetadataValue(['dc.description.abstract', 'dc.description']);
+  }
+
+  trackById(_index: number, item: Item): string {
+    return item.id;
   }
 
   get placeholderFontClass(): string {
@@ -142,4 +141,3 @@ export class RecentItemListComponent implements OnInit, OnDestroy {
   }
 
 }
-

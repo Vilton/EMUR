@@ -135,10 +135,21 @@ export class MenuResolverService {
               id: ``,
               active: false,
               visible: true,
-              index: 0,
+              index: 10,
               model: {
                 type: MenuItemType.LINK,
-                text: `Sobre`,
+                text: 'menu.section.about',
+                link: `/info/about`,
+              } as LinkMenuItemModel,
+            },
+            {
+              id: ``,
+              active: false,
+              visible: true,
+              index: -1,
+              model: {
+                type: MenuItemType.LINK,
+                text: 'menu.section.about',
                 link: `/info/about`,
               } as LinkMenuItemModel,
             },

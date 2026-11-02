@@ -3274,7 +3274,8 @@
 
   "menu.section.browse_global_by_title": "By Title",
 
-  "menu.section.browse_global_communities_and_collections": "Communities & Collections",
+  //"menu.section.browse_global_communities_and_collections": "Communities & Collections",
+  "menu.section.browse_global_communities_and_collections": "Communities",
 
   "menu.section.control_panel": "Control Panel",
 
@@ -3401,6 +3402,10 @@
   "menu.section.toggle.statistics_task": "Toggle Statistics Task section",
 
   "menu.section.workflow": "Administer Workflow",
+
+  "menu.section.about": "About",
+
+  "menu.section.contact": "Contact Us",
 
   "metadata-export-search.tooltip": "Export search results as CSV",
 

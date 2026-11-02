@@ -1,40 +1,791 @@
-@font-face {
-  font-family: 'BR Omny';
-  src: url('../assets/fonts/BROmny-Regular-BF65557eb88143f.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-// @font-face {
-//   font-family: 'BR Omny';
-//   src: url('../assets/fonts/BROmny-SemiBold-BF65557eb890e9a.otf');
-//   font-style: SemiBold;
-// }
+// Fontes locais: mantenha os arquivos enviados em ../assets/fonts/.
+// Pesos estáticos seguem os nomes das variantes (100 a 900).
+// ITC Bauhaus Medium usa peso normal (400), preservando o registro anterior.
+// Roboto Variable fica separado para não sobrepor as versões estáticas.
+// Estes registros não alteram a fonte padrão do projeto.
 
 @font-face {
   font-family: 'BR Omny';
-  src: url('../assets/fonts/BROmny-Bold-BF65557eb88a83f.otf');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'BR Omny';
-  src: url('../assets/fonts/BROmny-RegularItalic-BF65557eb88d058.otf');
-  font-weight: normal;
+  src: url('../assets/fonts/BROmny-ThinItalic-BF65557eb8898f8.otf') format('opentype');
+  font-weight: 100;
   font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-Thin-BF65557eb87d202.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-LightItalic-BF65557eb83985f.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-Light-BF65557eb87f5b9.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-RegularItalic-BF65557eb88d058.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-Regular-BF65557eb88143f.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-MediumItalic-BF65557eb87a104.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-Medium-BF65557eb8745de.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-SemiBoldItalic-BF65557eb87ac46.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-SemiBold-BF65557eb890e9a.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-BoldItalic-BF65557eb89deb2.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-Bold-BF65557eb88a83f.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-BlackItalic-BF65557eb86b2a6.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-Black-BF65557eb8858b2.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'ITC Bauhaus';
-  src: url('../assets/fonts/itc-bauhaus-bold.otf');
-  font-weight: bold;
-  font-style: normal;
+  src: url('../assets/fonts/ITC Bauhaus Light Oblique.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'ITC Bauhaus';
-  src: url('../assets/fonts/itc-bauhaus-medium.otf');
-  font-weight: normal;
+  src: url('../assets/fonts/ITC Bauhaus Light.ttf') format('truetype');
+  font-weight: 300;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ITC Bauhaus';
+  src: url('../assets/fonts/ITC Bauhaus Medium Oblique.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ITC Bauhaus';
+  src: url('../assets/fonts/ITC Bauhaus Medium.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ITC Bauhaus';
+  src: url('../assets/fonts/ITC Bauhaus Demi Oblique.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ITC Bauhaus';
+  src: url('../assets/fonts/ITC Bauhaus Demi.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ITC Bauhaus';
+  src: url('../assets/fonts/ITC Bauhaus Bold Oblique.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ITC Bauhaus';
+  src: url('../assets/fonts/ITC Bauhaus Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ITC Bauhaus';
+  src: url('../assets/fonts/ITC Bauhaus Heavy Oblique.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ITC Bauhaus';
+  src: url('../assets/fonts/ITC Bauhaus Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-100i.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-100.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-200i.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-200.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-300i.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-300.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-400i.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-500i.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-500.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-600i.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-600.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-700i.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-800i.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-800.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-900i.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rawline';
+  src: url('../assets/fonts/rawline-900.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('../assets/fonts/Roboto_Condensed-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto SemiCondensed';
+  src: url('../assets/fonts/Roboto_SemiCondensed-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Variable';
+  src: url('../assets/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-stretch: 75% 100%;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Variable';
+  src: url('../assets/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-stretch: 75% 100%;
+  font-display: swap;
 }

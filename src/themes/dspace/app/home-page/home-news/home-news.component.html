@@ -1,43 +1,33 @@
-<!-- home-news.component.html -->
-<div class="background-image-container mt-ncs mt-n9 pb-4">
+<div class="carousel-container" #carouselContainer>
+  <!-- Ajuste os destinos conforme as rotas cadastradas no projeto. -->
+  <nav class="carousel-menu" aria-label="Menu principal">
+    <a routerLink="/home">{{ 'home.title' | translate }}</a>
+    <a routerLink="/community-list">{{ 'menu.section.browse_global_communities_and_collections' | translate }}</a>
+    <a routerLink="/statistics">{{ 'menu.section.statistics' | translate }}</a>
+    <a routerLink="/contact">{{ 'menu.section.contact' | translate }}</a>
+    <a routerLink="/about">{{ 'menu.section.about' | translate }}</a>
+  </nav>
 
-  <div class="carousel-container" #carouselContainer>
-
-    <!-- LOGO CENTRALIZADO (FIXO, NÃO SE MOVE) -->
-    <!-- Instructions: Imagem fixa no centro do carrossel, acima de tudo, não animada -->
-    <div class="logo-overlay">
-      <!-- <img src="assets/dspace/images/emur/heroEmur.svg" -->
-      <img src="assets/dspace/images/emur/LOGO_EMUR.png"
-        alt="Digidata - Repositório Digital da Memória Urbanística do Recife" class="logo-image">
-    </div>
-
-    <!-- Carrossel -->
-    <!-- Instructions: Wrapper com slides posicionados absolutely para transição fade. -->
-    <div class="carousel-wrapper">
-
-      <div class="carousel-slide" *ngFor="let slide of slides; let i = index; trackBy: trackBySlide"
-        [class.active]="i === currentSlide" [class.exiting]="i === previousSlide"
-        [ngClass]="i === currentSlide ? 'animation-' + currentAnimation : ''">
-        <!-- Otimização: loading="lazy" para carregar imagens sob demanda -->
-        <img [src]="slide.image" [alt]="slide.title" loading="lazy" (animationend)="onAnimationEnd()">
-        <div class="slide-content">
-          <h4>{{ slide.title }}</h4>
-        </div>
-
-      </div>
-    </div>
-
-
-
-    <!-- Botões de navegação -->
-    <button class="carousel-btn prev" (click)="prev()" aria-label="Anterior">‹</button>
-    <button class="carousel-btn next" (click)="next()" aria-label="Próximo">›</button>
-
-    <!-- Botão de play/pausa -->
-    <!-- Instructions: Toggle para pausar/resumir autoplay. Inicia como '❚❚' pois começa reproduzindo. -->
-    <button class="carousel-btn play-pause" (click)="togglePlay()" aria-label="Play/Pausa">
-      {{ isPlaying ? '❚❚' : '▶' }}
-    </button>
+  <div class="logo-overlay">
+    <img src="assets/dspace/images/emur/LOGO_EMUR0.webp"
+      alt="Digidata - Repositório Digital da Memória Urbanística do Recife" class="logo-image">
   </div>
 
+  <div class="carousel-wrapper">
+    <div class="carousel-slide" *ngFor="let slide of slides; let i = index; trackBy: trackBySlide"
+      [class.active]="i === currentSlide" [class.exiting]="i === previousSlide"
+      [ngClass]="i === currentSlide ? 'animation-' + currentAnimation : ''" [attr.aria-hidden]="i !== currentSlide">
+      <img [src]="slide.image" [alt]="slide.title" loading="lazy">
+      <div class="slide-content">
+        <h4>{{ slide.title }}</h4>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="carousel-btn prev" (click)="prev()" aria-label="Imagem anterior">‹</button>
+  <button type="button" class="carousel-btn next" (click)="next()" aria-label="Próxima imagem">›</button>
+  <button type="button" class="carousel-btn play-pause" (click)="togglePlay()"
+    [attr.aria-label]="isPlaying ? 'Pausar carrossel' : 'Reproduzir carrossel'">
+    {{ isPlaying ? '❚❚' : '▶' }}
+  </button>
 </div>

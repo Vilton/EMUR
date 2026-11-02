@@ -1,53 +1,265 @@
 :host {
-
-  .navbar-expand {
-    justify-content: flex-end;
-  }
-
-  .nav {
-    background-color: transparent;
-    border-radius: 10px;
-    background-image: url('../../assets/images/emur/navbar.svg');
-    background-size: cover;
-    background-repeat: round;
-    color: #f4edd7 !important;
-  }
+  display: block;
+  width: 100%;
+  --emur-navbar-gold: #D6B13D;
+  --emur-navbar-cream: #f4edd7;
+  --ds-navbar-link-color: var(--emur-navbar-cream);
+  --ds-navbar-link-color-hover: #fff;
+  --ds-navbar-item-vertical-padding: 0;
+  --ds-navbar-item-horizontal-padding: 0;
 
   #main-site-header {
-
-    font-family: "ITC Bauhaus";
-    font-size: x-large;
-    // font-weight: 700;
-
-    position: fixed;
+    position: relative;
     width: 100%;
     z-index: 99;
+    box-sizing: border-box;
+    padding: 10px clamp(12px, 2.2vw, 44px);
+    background-color: #f7f5e8;
+    // font-family: 'Roboto', Arial, sans-serif;
+  }
 
-    min-height: var(--ds-header-height);
+  #main-site-header-container {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.4vw, 28px);
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 60px;
+    margin: 0 auto;
+    padding: 4px 22px;
+    border-radius: 999px;
+    background-color: var(--emur-navbar-gold);
+    color: var(--emur-navbar-cream);
+  }
 
-    @include media-breakpoint-up(md) {
-      height: var(--ds-header-height);
-    }
-
-    background-color: transparent;
-
-    // &-container {
-    //   min-height: var(--ds-header-height);
-    // }
-
+  .emur-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
   }
 
   img#header-logo {
-    height: var(--ds-header-logo-height);
+    display: block;
+    width: auto;
+    height: 48px;
+    max-width: 86px;
+    object-fit: contain;
   }
 
-  button#navbar-toggler {
-    color: var(--ds-header-icon-color);
+  #desktop-navbar {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
 
-    &:hover,
-    &:focus {
-      color: var(--ds-header-icon-color-hover);
+  #header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 0 1 auto;
+    min-width: 0;
+    margin-left: auto;
+  }
+
+  .emur-navbar-search {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    width: clamp(280px, 22vw, 340px);
+    max-width: 340px;
+    min-width: 280px;
+    height: 34px;
+    margin: 0;
+    padding: 0 12px;
+    border-radius: 999px;
+    background-color: var(--emur-navbar-cream);
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 28px;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--emur-navbar-gold);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      min-width: 0;
+      height: 100%;
+      padding: 0 6px;
+      border: 0;
+      background: transparent;
+      color: #58564d;
+      // font-family: Arial, sans-serif;
+      font-size: clamp(14px, 1.1vw, 20px);
+      font-weight: 600;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        box-shadow: none;
+      }
+
+      &::placeholder {
+        color: #858174;
+        opacity: 1;
+      }
     }
   }
 
+  .emur-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 0 0 auto;
+  }
+
+  button#navbar-toggler {
+    flex: 0 0 auto;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #181810;
+    font-size: 23px;
+    cursor: pointer;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #272419;
+    outline-offset: 3px;
+  }
+
+  // Scope child component styling to this header only.
+  ::ng-deep #main-site-header {
+    ds-navbar {
+      display: block;
+    }
+
+    ds-auth-nav-menu .dropdownLogin,
+    ds-auth-nav-menu .loginLink {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 2px 18px !important;
+      border-radius: 999px;
+      background-color: var(--emur-navbar-cream);
+      color: var(--emur-navbar-gold);
+      // font-family: inherit;
+      font-size: clamp(16px, 1.35vw, 24px);
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    ds-auth-nav-menu .dropdownLogin::after,
+    ds-lang-switch .dropdown-toggle::after {
+      display: none;
+    }
+
+    ds-lang-switch .dropdown-toggle,
+    ds-auth-nav-menu .dropdownLogout,
+    ds-auth-nav-menu .logoutLink {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      min-height: 34px;
+      color: #181810;
+      font-size: 22px;
+      text-decoration: none;
+    }
+
+    .dropdown-menu {
+      color: #212529;
+      font-size: 1rem;
+      text-transform: none;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    #main-site-header-container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    #main-site-header-container {
+      flex-wrap: wrap;
+      padding: 6px 24px;
+      border-radius: 32px;
+      gap: 8px 20px;
+    }
+
+    #desktop-navbar {
+      flex: 1 1 auto;
+    }
+
+    #header-right {
+      flex: 1 1 100%;
+      margin-left: 0;
+    }
+
+    img#header-logo {
+      height: 40px;
+    }
+
+    .emur-navbar-search {
+      margin-left: auto;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #main-site-header {
+      padding: 8px 12px;
+    }
+
+    #main-site-header-container {
+      align-items: flex-start;
+      gap: 12px;
+      padding: 8px 16px;
+      border-radius: 26px;
+    }
+
+    .emur-brand {
+      align-self: center;
+    }
+
+    img#header-logo {
+      height: 44px;
+      max-width: 65px;
+    }
+
+    #header-right {
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .emur-navbar-actions {
+      margin-left: auto;
+      gap: 8px;
+    }
+
+    .emur-navbar-search {
+      order: 3;
+      flex: 0 1 100%;
+      width: 100%;
+      max-width: 340px;
+      min-width: 120px;
+      height: 32px;
+    }
+  }
 }

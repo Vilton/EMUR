@@ -1,20 +1,18 @@
 <ng-container *ngVar="(communitiesRD$ | async) as communitiesRD">
-  <div *ngIf="communitiesRD?.hasSucceeded" class="py-4">
+  <div *ngIf="communitiesRD?.hasSucceeded" class="emur-themes">
 
-    <h2 class="text-center">
+    <h2 class="emur-themes-title">
       {{'home.top-level-communities.head' | translate}}
     </h2>
 
-    <div class="d-flex flex-wrap align-items-center justify-content-center gap-4">
-      <span *ngFor="let comunidade of communitiesRD.payload.page">
-        <a [href]="'communities/' + comunidade.uuid" class="card border-primary">
+    <div class="emur-themes-grid">
+      <div class="emur-theme" *ngFor="let comunidade of communitiesRD.payload.page">
+        <a [href]="'communities/' + comunidade.uuid" class="emur-theme-link">
           <img [src]="comunidade.logo"
-            onerror="this.onerror=null;this.src='/assets/dspace/images/emur/naoDisponivel.svg'" class="m-3">
-          <div class="d-flex flex-wrap align-items-center justify-content-center">
-            <p class="text-center" style="font-size: larger;">{{comunidade.name}}</p>
-          </div>
+            onerror="this.onerror=null;this.src='/assets/dspace/images/emur/naoDisponivel.svg'" class="emur-theme-image" alt="" loading="lazy">
+          <p class="emur-theme-name">{{comunidade.name}}</p>
         </a>
-      </span>
+      </div>
     </div>
 
   </div>
