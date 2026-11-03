@@ -1,3 +1,12 @@
+/*
+ * ATENCAO (EMUR, 03/11/2026)
+ * Algumas linhas deste arquivo estao COMENTADAS e marcadas com "EMUR".
+ * O tema "custom" esta inativo e esses componentes, referenciados apenas aqui, geravam
+ * o warning "is part of the TypeScript compilation but it's unused" na compilacao.
+ * Para UTILIZAR o tema custom e preciso DESCOMENTAR essas linhas (imports e entradas em
+ * DECLARATIONS), as linhas comentadas em ./eager-theme.module.ts e o import do
+ * CustomEagerThemeModule em ../eager-themes.module.ts.
+ */
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,10 +26,11 @@ import { MetadataImportPageComponent } from './app/admin/admin-import-metadata-p
 import { AdminSidebarComponent } from './app/admin/admin-sidebar/admin-sidebar.component';
 import { EditBitstreamPageComponent } from './app/bitstream-page/edit-bitstream-page/edit-bitstream-page.component';
 import { BreadcrumbsComponent } from './app/breadcrumbs/breadcrumbs.component';
-import { BrowseByDateComponent } from './app/browse-by/browse-by-date/browse-by-date.component';
-import { BrowseByMetadataComponent } from './app/browse-by/browse-by-metadata/browse-by-metadata.component';
-import { BrowseByTaxonomyComponent } from './app/browse-by/browse-by-taxonomy/browse-by-taxonomy.component';
-import { BrowseByTitleComponent } from './app/browse-by/browse-by-title/browse-by-title.component';
+// EMUR: descomentar para utilizar o tema custom (ver aviso no topo do arquivo)
+// import { BrowseByDateComponent } from './app/browse-by/browse-by-date/browse-by-date.component';
+// import { BrowseByMetadataComponent } from './app/browse-by/browse-by-metadata/browse-by-metadata.component';
+// import { BrowseByTaxonomyComponent } from './app/browse-by/browse-by-taxonomy/browse-by-taxonomy.component';
+// import { BrowseByTitleComponent } from './app/browse-by/browse-by-title/browse-by-title.component';
 import { CollectionPageComponent } from './app/collection-page/collection-page.component';
 import { EditItemTemplatePageComponent } from './app/collection-page/edit-item-template-page/edit-item-template-page.component';
 import { CommunityListComponent } from './app/community-list-page/community-list/community-list.component';
@@ -155,10 +165,11 @@ const DECLARATIONS = [
   SearchSettingsComponent,
   ComcolPageBrowseByComponent,
   ObjectListComponent,
-  BrowseByMetadataComponent,
-  BrowseByDateComponent,
-  BrowseByTitleComponent,
-  BrowseByTaxonomyComponent,
+  // EMUR: descomentar para utilizar o tema custom (ver aviso no topo do arquivo)
+  // BrowseByMetadataComponent,
+  // BrowseByDateComponent,
+  // BrowseByTitleComponent,
+  // BrowseByTaxonomyComponent,
   ExternalSourceEntryImportModalComponent,
   SearchFiltersComponent,
   SearchSidebarComponent,

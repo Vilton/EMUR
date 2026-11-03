@@ -1,18 +1,29 @@
+/*
+ * ATENCAO (EMUR, 03/11/2026)
+ * Algumas linhas deste arquivo estao COMENTADAS e marcadas com "EMUR".
+ * O tema "custom" esta inativo e esses componentes, referenciados apenas aqui, geravam
+ * o warning "is part of the TypeScript compilation but it's unused" na compilacao.
+ * Para UTILIZAR o tema custom e preciso DESCOMENTAR essas linhas (imports e entradas em
+ * ENTRY_COMPONENTS), as linhas comentadas em ./lazy-theme.module.ts e o import do
+ * CustomEagerThemeModule em ../eager-themes.module.ts.
+ */
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { RootModule } from '../../app/root.module';
-import { JournalComponent } from './app/entity-groups/journal-entities/item-pages/journal/journal.component';
-import { JournalIssueComponent } from './app/entity-groups/journal-entities/item-pages/journal-issue/journal-issue.component';
-import { JournalVolumeComponent } from './app/entity-groups/journal-entities/item-pages/journal-volume/journal-volume.component';
-import { PersonComponent } from './app/entity-groups/research-entities/item-pages/person/person.component';
+// EMUR: descomentar para utilizar o tema custom (ver aviso no topo do arquivo)
+// import { JournalComponent } from './app/entity-groups/journal-entities/item-pages/journal/journal.component';
+// import { JournalIssueComponent } from './app/entity-groups/journal-entities/item-pages/journal-issue/journal-issue.component';
+// import { JournalVolumeComponent } from './app/entity-groups/journal-entities/item-pages/journal-volume/journal-volume.component';
+// import { PersonComponent } from './app/entity-groups/research-entities/item-pages/person/person.component';
 import { FooterComponent } from './app/footer/footer.component';
 import { HeaderComponent } from './app/header/header.component';
 import { HeaderNavbarWrapperComponent } from './app/header-nav-wrapper/header-navbar-wrapper.component';
 import { HomeNewsComponent } from './app/home-page/home-news/home-news.component';
 import { TopLevelCommunityListComponent } from './app/home-page/top-level-community-list/top-level-community-list.component';
-import { PublicationComponent } from './app/item-page/simple/item-types/publication/publication.component';
-import { UntypedItemComponent } from './app/item-page/simple/item-types/untyped-item/untyped-item.component';
+// EMUR: descomentar para utilizar o tema custom (ver aviso no topo do arquivo)
+// import { PublicationComponent } from './app/item-page/simple/item-types/publication/publication.component';
+// import { UntypedItemComponent } from './app/item-page/simple/item-types/untyped-item/untyped-item.component';
 import { NavbarComponent } from './app/navbar/navbar.component';
 import { SearchNavbarComponent } from './app/search-navbar/search-navbar.component';
 import { CollectionDropdownComponent } from './app/shared/collection-dropdown/collection-dropdown.component';
@@ -25,35 +36,40 @@ import { EditItemSelectorComponent } from './app/shared/dso-selector/modal-wrapp
 import { FileDownloadLinkComponent } from './app/shared/file-download-link/file-download-link.component';
 import { LangSwitchComponent } from './app/shared/lang-switch/lang-switch.component';
 import { LogInComponent } from './app/shared/log-in/log-in.component';
-import { BrowseEntryListElementComponent } from './app/shared/object-list/browse-entry-list-element/browse-entry-list-element.component';
-import { CollectionListElementComponent } from './app/shared/object-list/collection-list-element/collection-list-element.component';
-import { CommunityListElementComponent } from './app/shared/object-list/community-list-element/community-list-element.component';
+// EMUR: descomentar para utilizar o tema custom (ver aviso no topo do arquivo)
+// import { BrowseEntryListElementComponent } from './app/shared/object-list/browse-entry-list-element/browse-entry-list-element.component';
+// import { CollectionListElementComponent } from './app/shared/object-list/collection-list-element/collection-list-element.component';
+// import { CommunityListElementComponent } from './app/shared/object-list/community-list-element/community-list-element.component';
 import { ItemSearchResultListElementComponent } from './app/shared/object-list/search-result-list-element/item-search-result/item-types/item/item-search-result-list-element.component';
-import { PublicationSidebarSearchListElementComponent } from './app/shared/object-list/sidebar-search-list-element/item-types/publication/publication-sidebar-search-list-element.component';
-import { StartsWithDateComponent } from './app/shared/starts-with/date/starts-with-date.component';
-import { StartsWithTextComponent } from './app/shared/starts-with/text/starts-with-text.component';
+// EMUR: descomentar para utilizar o tema custom (ver aviso no topo do arquivo)
+// import { PublicationSidebarSearchListElementComponent } from './app/shared/object-list/sidebar-search-list-element/item-types/publication/publication-sidebar-search-list-element.component';
+// import { StartsWithDateComponent } from './app/shared/starts-with/date/starts-with-date.component';
+// import { StartsWithTextComponent } from './app/shared/starts-with/text/starts-with-text.component';
 
 /**
  * Add components that use a custom decorator to ENTRY_COMPONENTS as well as DECLARATIONS.
  * This will ensure that decorator gets picked up when the app loads
  */
 const ENTRY_COMPONENTS = [
-  JournalComponent,
-  JournalIssueComponent,
-  JournalVolumeComponent,
-  PersonComponent,
-  PublicationComponent,
-  UntypedItemComponent,
-  CommunityListElementComponent,
-  CollectionListElementComponent,
+  // EMUR: descomentar para utilizar o tema custom (ver aviso no topo do arquivo)
+  // JournalComponent,
+  // JournalIssueComponent,
+  // JournalVolumeComponent,
+  // PersonComponent,
+  // PublicationComponent,
+  // UntypedItemComponent,
+  // CommunityListElementComponent,
+  // CollectionListElementComponent,
   CollectionDropdownComponent,
   FileDownloadLinkComponent,
-  StartsWithDateComponent,
-  StartsWithTextComponent,
-  PublicationSidebarSearchListElementComponent,
+  // EMUR: descomentar para utilizar o tema custom (ver aviso no topo do arquivo)
+  // StartsWithDateComponent,
+  // StartsWithTextComponent,
+  // PublicationSidebarSearchListElementComponent,
   ItemSearchResultListElementComponent,
   TopLevelCommunityListComponent,
-  BrowseEntryListElementComponent,
+  // EMUR: descomentar para utilizar o tema custom (ver aviso no topo do arquivo)
+  // BrowseEntryListElementComponent,
 ];
 
 const DECLARATIONS = [

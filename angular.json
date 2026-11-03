@@ -30,7 +30,11 @@
               "lodash",
               "jwt-decode",
               "uuid",
-              "zone.js"
+              "zone.js",
+              "date-fns-tz",
+              "filesize",
+              "js-cookie",
+              "klaro"
             ],
             "outputPath": "dist/browser",
             "index": "src/index.html",
