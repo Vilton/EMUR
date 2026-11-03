@@ -13,8 +13,9 @@
     width: 100%;
     z-index: 99;
     box-sizing: border-box;
-    padding: 10px clamp(12px, 2.2vw, 44px);
-    background-color: #f7f5e8;
+    // Same horizontal limits as the footer (.emur-footer / .emur-footer__content).
+    padding: 10px clamp(12px, 4.5vw, 90px);
+    background-color: transparent;
     // font-family: 'Roboto', Arial, sans-serif;
   }
 
@@ -24,6 +25,7 @@
     gap: clamp(12px, 1.4vw, 28px);
     box-sizing: border-box;
     width: 100%;
+    max-width: 1800px;
     min-height: 60px;
     margin: 0 auto;
     padding: 4px 22px;
@@ -188,12 +190,6 @@
     }
   }
 
-  @media (min-width: 1200px) {
-    #main-site-header-container {
-      max-width: 1280px;
-    }
-  }
-
   @media (min-width: 768px) and (max-width: 1199px) {
     #main-site-header-container {
       flex-wrap: wrap;
@@ -222,18 +218,14 @@
 
   @media (max-width: 767px) {
     #main-site-header {
-      padding: 8px 12px;
+      padding-top: 8px;
+      padding-bottom: 8px;
     }
 
     #main-site-header-container {
-      align-items: flex-start;
-      gap: 12px;
+      gap: 10px;
       padding: 8px 16px;
       border-radius: 26px;
-    }
-
-    .emur-brand {
-      align-self: center;
     }
 
     img#header-logo {
@@ -241,25 +233,51 @@
       max-width: 65px;
     }
 
+    // Single row: logo | search | actions | toggler
     #header-right {
       flex: 1 1 auto;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 6px;
+      gap: 8px;
+      margin-left: 0;
     }
 
     .emur-navbar-actions {
-      margin-left: auto;
       gap: 8px;
     }
 
     .emur-navbar-search {
-      order: 3;
-      flex: 0 1 100%;
-      width: 100%;
-      max-width: 340px;
-      min-width: 120px;
+      flex: 1 1 auto;
+      width: auto;
+      max-width: none;
+      min-width: 80px;
       height: 32px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    #main-site-header {
+      padding: 8px;
+    }
+
+    #main-site-header-container {
+      gap: 8px;
+      padding: 6px 12px;
+    }
+
+    #header-right {
+      gap: 6px;
+    }
+
+    .emur-navbar-actions {
+      gap: 4px;
+    }
+
+    .emur-navbar-search {
+      padding: 0 8px;
+
+      button {
+        flex-basis: 20px;
+        font-size: 16px;
+      }
     }
   }
 }
