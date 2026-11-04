@@ -8,6 +8,7 @@ import {
   inject,
 } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../../app/core/auth/auth.service';
 import { SearchService } from '../../../../app/core/shared/search/search.service';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
@@ -32,6 +33,7 @@ import { ImpersonateNavbarComponent } from '../../../../app/shared/impersonate-n
 })
 export class HeaderComponent extends BaseComponent implements OnInit {
   public isNavBarCollapsed$: Observable<boolean>;
+  public isAuthenticated$: Observable<boolean> = inject(AuthService).isAuthenticated();
   private readonly navbarRouter = inject(Router);
   private readonly navbarSearchService = inject(SearchService);
 

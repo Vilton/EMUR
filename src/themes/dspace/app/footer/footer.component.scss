@@ -98,12 +98,23 @@
   }
 }
 
+// Login link around the footer logo; shrinks like the logo itself.
 .emur-footer__logo-link {
   display: flex;
   align-items: center;
   height: 100%;
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  min-width: 0;
   max-width: none;
+
+  .emur-footer__logo {
+    max-width: 100%;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #272419;
+    outline-offset: 3px;
+  }
 }
 
 // Shrinks with the partner logos when space is short, keeping its aspect ratio.

@@ -4,7 +4,7 @@ import {
   NgIf,
 } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { NavigationEnd, PRIMARY_OUTLET, Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, NavigationStart, PRIMARY_OUTLET, Router, RouterOutlet } from '@angular/router';
 import { distinctUntilChanged, filter, map, startWith } from 'rxjs/operators';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -47,14 +47,19 @@ export class RootComponent extends BaseComponent {
   private readonly layoutRouter = inject(Router);
 
   // NavigationEnd updates the layout after redirects and ignores query parameters.
+  // NavigationStart hides the carousel as soon as we leave home, so it is not shown
+  // again while the router scrolls to the top before the next page renders.
   readonly isHomePage$ = this.layoutRouter.events.pipe(
-    filter((event) => event instanceof NavigationEnd),
+    filter((event) => event instanceof NavigationEnd
+      || (event instanceof NavigationStart && !this.isHomeUrl(event.url))),
     startWith(null),
-    map(() => {
-      const url = this.layoutRouter.parseUrl(this.layoutRouter.url);
-      const segments = url.root.children[PRIMARY_OUTLET]?.segments ?? [];
-      return segments.length === 1 && segments[0].path === 'home';
-    }),
+    map((event) => event instanceof NavigationStart ? false : this.isHomeUrl(this.layoutRouter.url)),
     distinctUntilChanged(),
   );
+
+  private isHomeUrl(rawUrl: string): boolean {
+    const url = this.layoutRouter.parseUrl(rawUrl);
+    const segments = url.root.children[PRIMARY_OUTLET]?.segments ?? [];
+    return segments.length === 1 && segments[0].path === 'home';
+  }
 }

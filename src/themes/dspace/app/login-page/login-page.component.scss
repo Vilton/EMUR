@@ -1,0 +1,9 @@
+// Same logo as the carousel (home-news .logo-image), keeping its aspect ratio.
+.login-logo {
+  display: block;
+  width: clamp(120px, 14vw, 180px);
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  object-fit: contain;
+}

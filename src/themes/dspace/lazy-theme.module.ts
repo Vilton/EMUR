@@ -11,8 +11,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { RootModule } from '../../app/root.module';
+import { LoginPageComponent } from './app/login-page/login-page.component';
+import { LogoutPageComponent } from './app/logout-page/logout-page.component';
 
 const DECLARATIONS = [
+  LoginPageComponent,
+  LogoutPageComponent,
 ];
 
 @NgModule({
@@ -29,8 +33,8 @@ const DECLARATIONS = [
     StoreRouterConnectingModule,
     TranslateModule,
     FormsModule,
+    ...DECLARATIONS,
   ],
-  declarations: DECLARATIONS,
 })
 
 /**

@@ -76,7 +76,7 @@
     bottom: calc(var(--title-bottom) + var(--title-height) + 16px);
     transform: none;
     z-index: 15;
-    width: clamp(100px, 11vw, 180px);
+    width: clamp(120px, 13vw, 216px);
     pointer-events: none;
     text-align: right;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
@@ -86,7 +86,7 @@
       box-sizing: border-box;
       width: 100%;
       height: auto;
-      max-height: 160px;
+      max-height: 190px;
       object-fit: contain;
       object-position: right bottom;
     }
@@ -265,10 +265,10 @@
     }
 
     .logo-overlay {
-      width: clamp(85px, 15vw, 120px);
+      width: clamp(100px, 18vw, 144px);
 
       .logo-image {
-        max-height: 120px;
+        max-height: 144px;
       }
     }
 

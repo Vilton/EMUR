@@ -3,8 +3,16 @@
 <footer class="emur-footer">
   <div class="emur-footer__content">
 
-    <img class="emur-footer__logo" src="assets/dspace/images/emur/LOGO_EMUR 4.webp"
-      alt="Estação da Memória Urbanística do Recife" />
+    <!-- Replaces the navbar login button -->
+    <a *ngIf="(isAuthenticated$ | async) !== true; else plainLogo" class="emur-footer__logo-link"
+      routerLink="/login" [attr.aria-label]="'nav.login' | translate" [title]="'nav.login' | translate">
+      <img class="emur-footer__logo" src="assets/dspace/images/emur/LOGO_EMUR 4.webp"
+        alt="Estação da Memória Urbanística do Recife" />
+    </a>
+    <ng-template #plainLogo>
+      <img class="emur-footer__logo" src="assets/dspace/images/emur/LOGO_EMUR 4.webp"
+        alt="Estação da Memória Urbanística do Recife" />
+    </ng-template>
 
     <div class="emur-footer__text">
       <p>Desenvolvido com o DSpace 8.1</p>

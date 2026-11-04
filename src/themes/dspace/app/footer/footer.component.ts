@@ -15,6 +15,7 @@ import {
   Observable,
   of as observableOf,
 } from 'rxjs';
+import { AuthService } from 'src/app/core/auth/auth.service';
 import { NotifyInfoService } from 'src/app/core/coar-notify/notify-info/notify-info.service';
 import { AuthorizationDataService } from 'src/app/core/data/feature-authorization/authorization-data.service';
 import { FeatureID } from 'src/app/core/data/feature-authorization/feature-id';
@@ -44,11 +45,13 @@ export class FooterComponent implements OnInit {
   showEndUserAgreement: boolean;
   showSendFeedback$: Observable<boolean>;
   coarLdnEnabled$: Observable<boolean>;
+  isAuthenticated$: Observable<boolean>;
 
   constructor(
     @Optional() public cookies: KlaroService,
     protected authorizationService: AuthorizationDataService,
     protected notifyInfoService: NotifyInfoService,
+    protected authService: AuthService,
     @Inject(APP_CONFIG) protected appConfig: AppConfig,
   ) {
   }
@@ -59,6 +62,7 @@ export class FooterComponent implements OnInit {
     this.showEndUserAgreement = this.appConfig.info.enableEndUserAgreement;
     this.coarLdnEnabled$ = this.appConfig.info.enableCOARNotifySupport ? this.notifyInfoService.isCoarConfigEnabled() : observableOf(false);
     this.showSendFeedback$ = this.authorizationService.isAuthorized(FeatureID.CanSendFeedback);
+    this.isAuthenticated$ = this.authService.isAuthenticated();
   }
 
   openCookieSettings() {

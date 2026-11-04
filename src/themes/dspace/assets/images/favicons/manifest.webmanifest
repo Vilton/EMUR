@@ -1,6 +1,6 @@
 {
-    "name": "DSpace",
-    "short_name": "DSpace",
+    "name": "Repositório EMUR",
+    "short_name": "EMUR",
     "icons": [
         {
             "src": "android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#091119",
-    "background_color": "#091119",
+    "theme_color": "#D6B13D",
+    "background_color": "#F8F1DC",
     "display": "standalone"
 }

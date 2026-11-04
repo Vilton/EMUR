@@ -3202,7 +3202,7 @@
 
   "login.form.forgot-password": "Have you forgotten your password?",
 
-  "login.form.header": "Please log in to DSpace",
+  "login.form.header": "Please log in to EMUR Repository",
 
   "login.form.new-user": "New user? Click here to register.",
 
@@ -3220,7 +3220,7 @@
 
   "login.breadcrumbs": "Login",
 
-  "logout.form.header": "Log out from DSpace",
+  "logout.form.header": "Log out from EMUR Repository",
 
   "logout.form.submit": "Log out",
 

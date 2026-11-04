@@ -23,7 +23,8 @@
       <div class="emur-navbar-actions" role="toolbar">
         <ds-context-help-toggle></ds-context-help-toggle>
         <ds-impersonate-navbar></ds-impersonate-navbar>
-        <ds-auth-nav-menu></ds-auth-nav-menu>
+        <!-- Login lives on the footer logo; only the user menu shows here -->
+        <ds-auth-nav-menu *ngIf="isAuthenticated$ | async"></ds-auth-nav-menu>
         <ds-lang-switch></ds-lang-switch>
       </div>
 
