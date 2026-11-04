@@ -139,7 +139,7 @@ export class MenuResolverService {
               model: {
                 type: MenuItemType.LINK,
                 text: 'menu.section.about',
-                link: `/info/about`,
+                link: `/about`,
               } as LinkMenuItemModel,
             },
             {
@@ -150,7 +150,7 @@ export class MenuResolverService {
               model: {
                 type: MenuItemType.LINK,
                 text: 'menu.section.about',
-                link: `/info/about`,
+                link: `/about`,
               } as LinkMenuItemModel,
             },
             /* Browse */

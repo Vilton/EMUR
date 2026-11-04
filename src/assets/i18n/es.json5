@@ -5093,6 +5093,12 @@
   //"menu.section.contact": "Contact Us",
   "menu.section.contact": "Contacto",
 
+  // "contact.page.address": "Address",
+  "contact.page.address": "Dirección",
+
+  // "contact.page.contact": "Contact",
+  "contact.page.contact": "Contacto",
+
   // "metadata-export-search.tooltip": "Export search results as CSV",
   "metadata-export-search.tooltip": "Exportar los resultados de búsqueda a CSV",
 

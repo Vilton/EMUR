@@ -3407,6 +3407,10 @@
 
   "menu.section.contact": "Contact Us",
 
+  "contact.page.address": "Address",
+
+  "contact.page.contact": "Contact",
+
   "metadata-export-search.tooltip": "Export search results as CSV",
 
   "metadata-export-search.submit.success": "The export was started successfully",

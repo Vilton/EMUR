@@ -1,0 +1,92 @@
+// Same horizontal limits as the header and footer (.emur-footer / .emur-footer__content).
+.emur-contact {
+  padding: 20px clamp(12px, 4.5vw, 90px);
+  color: #66665c;
+}
+
+.emur-contact__map {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1800px;
+  min-height: clamp(320px, 42vw, 640px);
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 48px);
+  border-radius: 18px;
+  background: #f2f2f2 url('/assets/dspace/images/emur/mapa-emur.webp') center / cover no-repeat;
+}
+
+.emur-contact__card {
+  box-sizing: border-box;
+  width: clamp(260px, 30%, 400px);
+  padding: clamp(16px, 2vw, 28px);
+  border-radius: 12px;
+  background-color: rgba(247, 243, 230, 0.92);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  font-size: clamp(13px, 1vw, 16px);
+  line-height: 1.4;
+
+  p {
+    margin: 0 0 0.75rem;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+}
+
+.emur-contact__org {
+  font-size: 1.15em;
+  font-weight: 700;
+}
+
+.emur-contact__title {
+  margin: 0 0 1.5rem;
+  color: inherit;
+  font-size: clamp(20px, 1.9vw, 30px);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.emur-contact__label {
+  margin: 1.25rem 0 0.4rem;
+  color: inherit;
+  font-size: 1.05em;
+  font-weight: 900;
+}
+
+// Mobile: map on top, card below it.
+@media (max-width: 767px) {
+  .emur-contact__map {
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 0;
+    padding: 0;
+    // Full map (2215 × 1565) above the card.
+    padding-top: 70.5%;
+    overflow: hidden;
+    background-position: top center;
+    background-size: 100% auto;
+  }
+
+  .emur-contact__card {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: #f7f3e6;
+  }
+}
+
+@media (max-width: 576px) {
+  .emur-contact {
+    padding: 12px 8px;
+  }
+}

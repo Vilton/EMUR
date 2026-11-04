@@ -1,0 +1,254 @@
+// Layout follows the "Sobre" mockup (5_2 SOBRE-EMUR.pdf).
+// Text uses the project font (Roboto); display titles use ITC Bauhaus, as in the mockup.
+$emur-gold: #d6b13d;
+$emur-grey: #4d4d4d;
+$emur-card: #fffaf0;
+$emur-bauhaus: 'ITC Bauhaus', 'Roboto', Arial, sans-serif;
+
+// Same horizontal limits as the header and footer.
+.emur-about {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(1800px + 2 * 90px);
+  margin: 0 auto;
+  padding: 20px clamp(12px, 4.5vw, 90px) 40px;
+  color: $emur-grey;
+  font-size: clamp(14px, 1.1vw, 17px);
+  line-height: 1.5;
+
+  p {
+    margin: 0 0 1em;
+  }
+
+  section {
+    margin-top: clamp(40px, 6vw, 96px);
+  }
+}
+
+.emur-about__display {
+  margin: 0;
+  color: $emur-grey;
+  font-family: $emur-bauhaus;
+  font-size: clamp(36px, 4.4vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.emur-about__hero {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1600 / 489;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+// Apresentação
+.emur-about__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 64px);
+  margin-top: clamp(24px, 3vw, 40px) !important;
+}
+
+.emur-about__intro-head {
+  padding-left: clamp(0px, 2vw, 32px);
+}
+
+.emur-about__subtitle {
+  margin-top: 0.8rem !important;
+  padding-left: clamp(0px, 1.2vw, 20px);
+  font-family: $emur-bauhaus;
+  font-size: clamp(16px, 1.6vw, 23px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+// Frentes de atuação
+.emur-about__fronts {
+  text-align: center;
+}
+
+.emur-about__fan {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  path {
+    fill: $emur-card;
+  }
+
+  text {
+    fill: $emur-grey;
+    font-size: 6.6px;
+    font-weight: 700;
+    text-anchor: middle;
+  }
+}
+
+.emur-about__fan-logo {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 27%;
+  transform: translateX(-50%);
+}
+
+.emur-about__fronts-title {
+  margin: 1rem 0 0;
+  color: $emur-grey;
+  font-family: $emur-bauhaus;
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-weight: 700;
+}
+
+// Desktop: the fan already shows the items; keep the list for screen readers only.
+.emur-about__fronts-list {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+// Baobá
+.emur-about__baobab {
+  display: grid;
+  grid-template-columns: minmax(160px, 28%) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 64px);
+  padding: clamp(24px, 4vw, 56px);
+  border-radius: 18px;
+  background-color: $emur-card;
+}
+
+.emur-about__baobab-img {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.emur-about__baobab-title {
+  margin: 0;
+  color: $emur-gold;
+  font-family: $emur-bauhaus;
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.emur-about__baobab-kicker {
+  margin-bottom: 2em !important;
+  color: $emur-gold;
+  font-family: $emur-bauhaus;
+  font-size: clamp(15px, 1.5vw, 21px);
+  font-weight: 700;
+}
+
+.emur-about__quote {
+  margin: 1.5em 0 1.5em clamp(0px, 5vw, 80px);
+  color: $emur-gold;
+  font-family: $emur-bauhaus;
+  font-size: clamp(16px, 1.5vw, 21px);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+// Retalhos da Cidade
+.emur-about__retalhos {
+  display: grid;
+  grid-template-columns: minmax(0, 36%) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 64px);
+  align-items: start;
+}
+
+.emur-about__retalhos-lead {
+  margin-top: clamp(24px, 3vw, 48px) !important;
+  padding-left: clamp(0px, 1.5vw, 24px);
+  font-family: $emur-bauhaus;
+  font-size: clamp(17px, 1.7vw, 24px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.emur-about__retalhos-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.emur-about__retalhos-notes {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 64px);
+  font-size: 0.85em;
+  text-align: justify;
+}
+
+// Mobile: one column; the fan becomes a list of cards.
+@media (max-width: 767px) {
+  .emur-about__intro,
+  .emur-about__baobab,
+  .emur-about__retalhos,
+  .emur-about__retalhos-notes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .emur-about__intro-head,
+  .emur-about__subtitle,
+  .emur-about__retalhos-lead {
+    padding-left: 0;
+  }
+
+  .emur-about__fan svg {
+    display: none;
+  }
+
+  .emur-about__fan-logo {
+    position: static;
+    display: block;
+    width: 160px;
+    margin: 0 auto;
+    transform: none;
+  }
+
+  .emur-about__fronts-list {
+    position: static;
+    display: grid;
+    gap: 10px;
+    width: auto;
+    height: auto;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    list-style: none;
+
+    li {
+      padding: 12px 16px;
+      border-radius: 12px;
+      background-color: $emur-card;
+      font-weight: 700;
+    }
+  }
+
+  .emur-about__baobab-img {
+    max-width: 200px;
+  }
+
+  .emur-about__quote {
+    margin-left: 0;
+  }
+}

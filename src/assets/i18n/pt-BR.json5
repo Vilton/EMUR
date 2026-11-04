@@ -5066,6 +5066,12 @@
   //"menu.section.contact": "Contact Us",
   "menu.section.contact": "Contato",
 
+  // "contact.page.address": "Address",
+  "contact.page.address": "Endereço",
+
+  // "contact.page.contact": "Contact",
+  "contact.page.contact": "Contato",
+
   // "metadata-export-search.tooltip": "Export search results as CSV",
   "metadata-export-search.tooltip": "Exportar resultados de pesquisa como CSV",
 
