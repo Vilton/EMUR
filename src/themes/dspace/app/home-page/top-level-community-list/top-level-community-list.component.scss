@@ -19,17 +19,29 @@
   text-align: center;
 }
 
+// Centered rows: 3 per row, 2 on mobile; an incomplete last row stays centered.
 .emur-themes-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: clamp(12px, 2vw, 32px);
+  --theme-cols: 3;
+  --theme-gap: clamp(12px, 2vw, 32px);
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: var(--theme-gap);
   row-gap: clamp(40px, 5vw, 80px);
   width: 100%;
   margin: 0 auto;
 }
 
 .emur-theme {
+  flex: 0 0 calc((100% - (var(--theme-cols) - 1) * var(--theme-gap)) / var(--theme-cols));
   min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .emur-themes-grid {
+    --theme-cols: 2;
+  }
 }
 
 .emur-theme-link {

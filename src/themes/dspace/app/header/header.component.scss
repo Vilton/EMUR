@@ -67,9 +67,10 @@
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    width: clamp(280px, 22vw, 340px);
-    max-width: 340px;
-    min-width: 280px;
+    // Wide enough for the placeholder ("Projeto, Rua, Comunidade, Bairro…" and translations).
+    width: clamp(340px, 26vw, 400px);
+    max-width: 400px;
+    min-width: 340px;
     height: 34px;
     margin: 0;
     padding: 0 12px;
@@ -272,11 +273,20 @@
     }
 
     .emur-navbar-search {
-      padding: 0 8px;
+      padding: 0 6px;
 
       button {
         flex-basis: 20px;
         font-size: 16px;
+      }
+
+      // Smaller placeholder so the pt-BR text fits on phones.
+      input {
+        padding: 0 2px;
+
+        &::placeholder {
+          font-size: clamp(10px, 2.8vw, 14px);
+        }
       }
     }
   }

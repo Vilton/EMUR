@@ -5,7 +5,7 @@
  * - Animação inicia após 1s, dura 7s (total 8s)
  * - Fade: 1s suave
  * - Sem reset visível
- * - Logo fixo no canto superior esquerdo, acima do menu (não animado)
+ * - Logo e menu no canto inferior esquerdo, acima dos botões (não animados)
  * - Título acompanha a transição do slide, sem atraso próprio
  */
 
@@ -20,6 +20,7 @@
   --edge: clamp(20px, 4vw, 80px);
   --title-bottom: 30px;
   --title-height: 56px;
+  --aside-bottom: 104px; // buttons: bottom 30px + height 50px + 24px gap
 
   position: relative;
   width: 100%;
@@ -29,10 +30,10 @@
   overflow: hidden;
   border-radius: 0;
 
-  // Logo on top, menu below it, in the top-left corner.
+  // Logo on top, menu below it, in the bottom-left corner above the prev/next buttons.
   .carousel-aside {
     position: absolute;
-    top: var(--edge);
+    bottom: var(--aside-bottom);
     left: var(--edge);
     z-index: 15;
     display: flex;
@@ -257,6 +258,7 @@
     --edge: 20px;
     --title-bottom: 88px;
     --title-height: 48px;
+    --aside-bottom: 84px; // buttons: bottom 20px + height 40px + 24px gap
     height: 70vh;
 
     .carousel-menu a {
