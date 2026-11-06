@@ -143,25 +143,27 @@ export class MenuResolverService {
               } as TextMenuItemModel,
             },
             {
-              id: 'about_emur',
-              parentID: 'about',
-              active: false,
-              visible: true,
-              model: {
-                type: MenuItemType.LINK,
-                text: 'menu.section.about.emur',
-                link: `/about/emur`,
-              } as LinkMenuItemModel,
-            },
-            {
               id: 'about_urb',
               parentID: 'about',
+              index: 0,
               active: false,
               visible: true,
               model: {
                 type: MenuItemType.LINK,
                 text: 'menu.section.about.urb',
                 link: `/about/urb`,
+              } as LinkMenuItemModel,
+            },
+            {
+              id: 'about_emur',
+              parentID: 'about',
+              index: 1,
+              active: false,
+              visible: true,
+              model: {
+                type: MenuItemType.LINK,
+                text: 'menu.section.about.emur',
+                link: `/about/emur`,
               } as LinkMenuItemModel,
             },
             /* Browse */

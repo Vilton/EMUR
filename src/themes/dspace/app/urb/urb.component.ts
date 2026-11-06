@@ -54,9 +54,8 @@ export class UrbComponent {
     },
     { name: 'Fátima Cisneiros', role: ['Arquiteta Urbanista', 'Coordenadora de Gestão'], photo: 'fatima-cisneiros' },
     { name: 'Marcelo Figueiredo', role: ['Arquiteto Urbanista'], photo: 'marcelo-figueiredo' },
-    // Role still to be defined (placeholder in the mockup).
-    { name: 'Ângela Ayres', role: [], photo: 'angela-ayres' },
-    { name: 'Sennor Ramos', role: ['Assessoria Especial do Prefeito'], photo: 'sennor-ramos' },
+    { name: 'Ângela Ayres', role: ['Design Gráfico'], photo: 'angela-ayres' },
+    { name: 'Sennor Ramos', role: ['Videomaker e Fotógrafo'], photo: 'sennor-ramos' },
     { name: 'Elvira Fernandes', role: ['Advogada', 'Assessoria Jurídica'], photo: 'elvira-fernandes' },
     { name: 'Gleyce Medeiros', role: ['Analista Social'], photo: 'gleyce-medeiros' },
     { name: 'Socorro Albuquerque', role: ['Assistente Social'], photo: 'socorro-albuquerque' },
