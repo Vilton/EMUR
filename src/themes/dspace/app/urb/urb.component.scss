@@ -1,0 +1,404 @@
+// Layout follows the mockup 5.1 SOBRE-URB.pdf, with the same base as the EMUR page.
+// Text uses the project font (Roboto); display titles and names use ITC Bauhaus, as in the mockup.
+$urb-gold: #d6b13d;
+$urb-grey: #4d4d4d;
+$urb-card: #fffaf0;
+$urb-bauhaus: 'ITC Bauhaus', 'Roboto', Arial, sans-serif;
+
+// Same horizontal limits as the header and footer.
+.urb-about {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(1800px + 2 * 90px);
+  margin: 0 auto;
+  padding: 20px clamp(12px, 4.5vw, 90px) 40px;
+  color: $urb-grey;
+  font-size: clamp(14px, 1.1vw, 17px);
+  line-height: 1.5;
+
+  p {
+    margin: 0 0 1em;
+  }
+
+  section {
+    margin-top: clamp(40px, 6vw, 96px);
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.urb-about__hero {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1920 / 686;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+// Apresentação
+.urb-about__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 64px);
+  margin-top: clamp(24px, 3vw, 40px) !important;
+}
+
+.urb-about__intro-head {
+  padding-left: clamp(0px, 2vw, 32px);
+}
+
+.urb-about__display {
+  margin: 0;
+  font-family: $urb-bauhaus;
+  font-size: clamp(36px, 4.4vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.urb-about__subtitle {
+  margin-top: 0.6rem !important;
+  padding-left: clamp(0px, 2.5vw, 40px);
+  font-family: $urb-bauhaus;
+  font-size: clamp(16px, 1.6vw, 23px);
+  font-weight: 700;
+}
+
+// Trajetória: centered display paragraph.
+.urb-about__history p {
+  max-width: 1150px;
+  margin: 0 auto !important;
+  font-family: $urb-bauhaus;
+  font-size: clamp(16px, 1.8vw, 26px);
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+}
+
+// Rota do Futuro
+.urb-about__future {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 64px);
+  padding: clamp(24px, 4vw, 56px);
+  border-radius: 18px;
+  background-color: $urb-card;
+  color: #000;
+}
+
+.urb-about__future-img {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.urb-about__future-title {
+  margin: 0;
+  color: $urb-gold;
+  font-family: $urb-bauhaus;
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.urb-about__future-kicker {
+  margin-bottom: 1.5em !important;
+  color: $urb-gold;
+  font-family: $urb-bauhaus;
+  font-size: clamp(14px, 1.4vw, 20px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.urb-about__future strong {
+  font-weight: 900;
+}
+
+.urb-about__quote {
+  margin: 1.5em 0 0 clamp(0px, 3vw, 56px) !important;
+  color: $urb-gold;
+  font-family: $urb-bauhaus;
+  font-size: clamp(15px, 1.4vw, 20px);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+// Memória e Futuro Conectados
+.urb-about__memory {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 64px);
+  align-items: stretch;
+}
+
+.urb-about__map {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.urb-about__memory-body {
+  display: flex;
+  flex-direction: column;
+  padding-top: clamp(0px, 4vw, 64px);
+}
+
+.urb-about__memory-title {
+  margin: 0 0 clamp(24px, 4vw, 64px);
+  color: $urb-gold;
+  font-family: $urb-bauhaus;
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.urb-about__memory-text {
+  max-width: 560px;
+  padding-left: clamp(0px, 1.5vw, 24px);
+  font-family: $urb-bauhaus;
+  font-size: clamp(15px, 1.4vw, 20px);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+// Legend of the map: one dot per year on a line that runs from the map to the right edge.
+.urb-about__timeline {
+  position: relative;
+  margin: auto 0 clamp(40px, 7vw, 120px);
+  padding-top: 24px;
+  color: $urb-gold;
+  font-family: $urb-bauhaus;
+  font-weight: 700;
+
+  figcaption {
+    margin-bottom: 4px;
+    font-size: clamp(11px, 0.85vw, 14px);
+    text-align: center;
+  }
+
+  ol {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    // The line starts under the map (left column) and ends at the right edge.
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      left: calc(-1 * clamp(20px, 4vw, 64px) - 30%);
+      border-top: 1px solid $urb-grey;
+    }
+  }
+
+  li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: clamp(11px, 0.85vw, 14px);
+
+    &::after {
+      content: '';
+      position: relative;
+      z-index: 1;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: var(--dot);
+    }
+  }
+}
+
+// Expediente
+.urb-about__staff-title {
+  margin: 0 0 clamp(24px, 4vw, 56px);
+  font-family: $urb-bauhaus;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.urb-about__name,
+.urb-about__role {
+  display: block;
+  color: #000;
+}
+
+.urb-about__name {
+  font-family: $urb-bauhaus;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.urb-about__role {
+  font-size: 0.85em;
+  line-height: 1.3;
+}
+
+.urb-about__leaders {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 4vw, 64px);
+  text-align: center;
+
+  img {
+    display: block;
+    width: clamp(120px, 12vw, 200px);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 0.9em;
+    object-fit: cover;
+  }
+
+  .urb-about__name {
+    font-size: clamp(16px, 1.5vw, 21px);
+  }
+}
+
+// Section divider: title between two lines.
+.urb-about__team-title {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 4vw, 80px);
+  margin: clamp(40px, 5vw, 80px) 0 clamp(24px, 3vw, 48px);
+  font-family: $urb-bauhaus;
+  font-size: clamp(17px, 1.7vw, 24px);
+  font-weight: 700;
+
+  span {
+    flex: 0 0 auto;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1 1 0;
+    border-top: 1px solid $urb-grey;
+  }
+}
+
+.urb-about__team {
+  // Flex (not grid) so an incomplete last row is centered.
+  --team-col-gap: clamp(20px, 4vw, 64px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(20px, 2.5vw, 40px) var(--team-col-gap);
+
+  li {
+    flex: 0 0 calc((100% - 2 * var(--team-col-gap)) / 3);
+    box-sizing: border-box;
+    min-width: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  img {
+    flex: 0 0 auto;
+    width: clamp(72px, 6.5vw, 110px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .urb-about__name {
+    font-size: clamp(14px, 1.1vw, 17px);
+  }
+}
+
+// Tablet: as many people per row as the width allows.
+@media (max-width: 991px) {
+  .urb-about__team li {
+    flex-basis: min(100%, 300px);
+  }
+}
+
+// Mobile: one column.
+@media (max-width: 767px) {
+  .urb-about__intro,
+  .urb-about__future,
+  .urb-about__memory {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .urb-about__intro-head,
+  .urb-about__subtitle,
+  .urb-about__memory-text {
+    padding-left: 0;
+  }
+
+  .urb-about__future-img {
+    max-width: 320px;
+  }
+
+  .urb-about__map {
+    max-width: 360px;
+  }
+
+  .urb-about__memory-body {
+    padding-top: 0;
+  }
+
+  .urb-about__quote {
+    margin-left: 0 !important;
+  }
+
+  .urb-about__timeline {
+    margin-bottom: 0;
+
+    ol::before {
+      left: 0;
+    }
+  }
+
+  // Photos side by side, filling the width: the grid adds columns as space allows.
+  .urb-about__leaders {
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: 20px 12px;
+
+    img {
+      width: 100%;
+      max-width: 140px;
+      margin-bottom: 0.6em;
+    }
+
+    .urb-about__name {
+      font-size: 15px;
+    }
+  }
+
+  .urb-about__team {
+    --team-col-gap: 12px;
+    row-gap: 24px;
+    text-align: center;
+
+    li {
+      // Three per row on a 375 px phone, more on wider screens.
+      flex-basis: clamp(96px, 28vw, 140px);
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 140px;
+    }
+  }
+
+  .urb-about__role {
+    font-size: 0.8em;
+  }
+}

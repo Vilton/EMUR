@@ -1,0 +1,138 @@
+<div class="urb-about">
+
+  <img class="urb-about__hero" src="assets/dspace/images/emur/sobre/urb/equipe-urb.webp"
+    alt="Foto da equipe da URB-Recife reunida em frente à fachada azul e branca da sede" />
+
+  <!-- Apresentação -->
+  <section class="urb-about__intro">
+    <div class="urb-about__intro-head">
+      <h1 class="urb-about__display">URB-Recife</h1>
+      <p class="urb-about__subtitle">Autarquia de Urbanização do Recife</p>
+    </div>
+    <div class="urb-about__intro-text">
+      <p>
+        Autarquia de Urbanização da Prefeitura, URB-Recife, hoje vinculada à Secretaria Municipal de
+        Infraestrutura, foi instituída pela Lei nº 10.930, em 07 de fevereiro de 1973.
+      </p>
+      <p>
+        Tem seu legado coletivo e grandioso nas ações da política pública de urbanização da Capital de
+        Pernambuco.
+      </p>
+    </div>
+  </section>
+
+  <!-- Trajetória -->
+  <section class="urb-about__history">
+    <p>
+      A URB-Recife, em sua trajetória institucional, atuou respondendo pelo planejamento e controle urbano,
+      pela limpeza pública e drenagem, esgotamento sanitário, sistema viário, gestão do trânsito e o
+      transporte coletivo, nas questões ambientais, construções de praças, parques, na salvaguarda e
+      conservação dos Sítios Históricos e edificações, política habitacional, urbanização das comunidades e
+      das ZEIS, na gestão participativa do modelo PREZEIS e regularização fundiária. Ademais, consolidou a
+      Defesa Civil do Recife e foi pioneira na urbanização e controle de risco dos morros, entre outros.
+    </p>
+  </section>
+
+  <!-- Rota do Futuro -->
+  <section class="urb-about__future" aria-labelledby="urb-future-title">
+    <img class="urb-about__future-img" src="assets/dspace/images/emur/sobre/urb/recife-rota-do-futuro.webp"
+      alt="Marca do programa Recife na Rota do Futuro" />
+    <div>
+      <h2 id="urb-future-title" class="urb-about__future-title">A URB-Recife na Rota do Futuro</h2>
+      <p class="urb-about__future-kicker">
+        Rota do Futuro 01 - Gestão João Campos 2021-2026<br />
+        Rota do Futuro 02 - Gestão Victor Marques 2026-2028
+      </p>
+      <p>
+        A partir da perspectiva do Recife na Rota do Futuro, protagonizada inicialmente pelo Prefeito
+        <strong>João Campos</strong> em 2021 e, atualmente, pelo Prefeito <strong>Victor Marques</strong> em
+        conjunto com a Secretária de Infraestrutura <strong>Beatriz Menezes</strong>, a URB-Recife tendo como
+        Presidente <strong>Luís Henrique Lira</strong> passou a potencializar a sua atuação frente ao
+        desenvolvimento de ações urbanísticas e obras na perspectiva de uma cidade solidária, humanizada,
+        sustentável com gestão integrada e digital.
+      </p>
+      <p class="urb-about__quote">
+        Foco da atuação nas comunidades de interesse social e nas áreas de riscos dos morros, territórios que
+        mais precisam da garantia de direitos, pois acolhem mais de 500 mil recifenses. Destaque na
+        mobilidade, drenagens na cidade surgida das águas e praças promovendo a interação social em tempos de
+        mudanças climáticas.
+      </p>
+    </div>
+  </section>
+
+  <!-- Memória e Futuro Conectados -->
+  <section class="urb-about__memory" aria-labelledby="urb-memory-title">
+    <img class="urb-about__map" src="assets/dspace/images/emur/sobre/urb/mapa-obras-recife.webp"
+      alt="Mapa do Recife com pontos coloridos marcando as obras da URB-Recife de 2015 a 2024" />
+    <div class="urb-about__memory-body">
+      <h2 id="urb-memory-title" class="urb-about__memory-title">Memória e Futuro<br />Conectados</h2>
+      <div class="urb-about__memory-text">
+        <p>
+          Em 2023, a URB celebrou seus 50 anos com a criação da Estação da Memória Urbanística do Recife
+          (EMUR) e o desenvolvimento do Repositório em meio digital, conectando o passado através de projetos
+          e obras públicas em sua trajetória com os futuros projetos para a capital.
+        </p>
+        <p>
+          Socializando o marco histórico de sua trajetória foi materializado seu legado através da publicação
+          “URB-Recife 50 anos no coração da cidade”.
+        </p>
+      </div>
+      <figure class="urb-about__timeline">
+        <figcaption>obras através dos tempos em permanente atualização</figcaption>
+        <ol>
+          @for (item of timeline; track item.year) {
+            <li [style.--dot]="item.color">{{ item.year }}</li>
+          }
+        </ol>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Expediente -->
+  <section class="urb-about__staff" aria-labelledby="urb-staff-title">
+    <h2 id="urb-staff-title" class="urb-about__staff-title">expediente</h2>
+
+    <ul class="urb-about__leaders">
+      @for (person of leaders; track person.photo) {
+        <li>
+          <img [src]="photos + person.photo + '.webp'" [alt]="'Foto de ' + person.name" loading="lazy" />
+          <span class="urb-about__name">{{ person.name }}</span>
+          @for (line of person.role; track $index) {
+            <span class="urb-about__role">{{ line }}</span>
+          }
+        </li>
+      }
+    </ul>
+
+    <h3 class="urb-about__team-title"><span>Corpo Técnico da URB-Recife</span></h3>
+    <ul class="urb-about__team">
+      @for (person of urbTeam; track person.photo) {
+        <li>
+          <img [src]="photos + person.photo + '.webp'" [alt]="'Foto de ' + person.name" loading="lazy" />
+          <div>
+            <span class="urb-about__name">{{ person.name }}</span>
+            @for (line of person.role; track $index) {
+              <span class="urb-about__role">{{ line }}</span>
+            }
+          </div>
+        </li>
+      }
+    </ul>
+
+    <h3 class="urb-about__team-title"><span>Corpo Técnico da UFPE</span></h3>
+    <ul class="urb-about__team">
+      @for (person of ufpeTeam; track person.photo) {
+        <li>
+          <img [src]="photos + person.photo + '.webp'" [alt]="'Foto de ' + person.name" loading="lazy" />
+          <div>
+            <span class="urb-about__name">{{ person.name }}</span>
+            @for (line of person.role; track $index) {
+              <span class="urb-about__role">{{ line }}</span>
+            }
+          </div>
+        </li>
+      }
+    </ul>
+  </section>
+
+</div>

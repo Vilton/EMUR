@@ -3405,6 +3405,10 @@
 
   "menu.section.about": "About",
 
+  "menu.section.about.emur": "EMUR",
+
+  "menu.section.about.urb": "URB",
+
   "menu.section.contact": "Contact Us",
 
   "contact.page.address": "Address",

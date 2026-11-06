@@ -131,26 +131,37 @@ export class MenuResolverService {
           });
           menuList.push(
             /* Communities & Collections tree */
+            /* Sobre: menu suspenso (abre ao passar o mouse) com EMUR e URB */
             {
-              id: ``,
+              id: 'about',
               active: false,
               visible: true,
               index: 10,
               model: {
-                type: MenuItemType.LINK,
+                type: MenuItemType.TEXT,
                 text: 'menu.section.about',
-                link: `/about`,
+              } as TextMenuItemModel,
+            },
+            {
+              id: 'about_emur',
+              parentID: 'about',
+              active: false,
+              visible: true,
+              model: {
+                type: MenuItemType.LINK,
+                text: 'menu.section.about.emur',
+                link: `/about/emur`,
               } as LinkMenuItemModel,
             },
             {
-              id: ``,
+              id: 'about_urb',
+              parentID: 'about',
               active: false,
               visible: true,
-              index: -1,
               model: {
                 type: MenuItemType.LINK,
-                text: 'menu.section.about',
-                link: `/about`,
+                text: 'menu.section.about.urb',
+                link: `/about/urb`,
               } as LinkMenuItemModel,
             },
             /* Browse */

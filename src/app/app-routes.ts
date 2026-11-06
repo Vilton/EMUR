@@ -42,7 +42,8 @@ import { ThemedPageNotFoundComponent } from './pagenotfound/themed-pagenotfound.
 import { PROCESS_MODULE_PATH } from './process-page/process-page-routing.paths';
 import { provideSubmissionState } from './submission/provide-submission-state';
 import { SUGGESTION_MODULE_PATH } from './suggestions-page/suggestions-page-routing-paths';
-import { AboutComponent } from 'src/themes/dspace/app/about/about.component';
+import { EmurComponent } from 'src/themes/dspace/app/emur/emur.component';
+import { UrbComponent } from 'src/themes/dspace/app/urb/urb.component';
 import { ContactComponent } from 'src/themes/dspace/app/contact/contact.component';
 
 export const APP_ROUTES: Route[] = [
@@ -260,9 +261,13 @@ export const APP_ROUTES: Route[] = [
         canActivate: [authenticatedGuard],
       },
       {
+        // "Sobre": /about/emur and /about/urb; /about alone goes to /about/emur.
         path: 'about',
-        component: AboutComponent,
-        data: { title: 'Sobre o Repositório' },
+        children: [
+          { path: '', pathMatch: 'full', redirectTo: 'emur' },
+          { path: 'emur', component: EmurComponent, data: { title: 'Sobre a EMUR' } },
+          { path: 'urb', component: UrbComponent, data: { title: 'Sobre a URB' } },
+        ],
       },
       {
         path: 'contact',

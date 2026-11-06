@@ -5090,6 +5090,12 @@
   //"menu.section.about": "About",
   "menu.section.about": "Acerca de",
 
+  // "menu.section.about.emur": "EMUR",
+  "menu.section.about.emur": "EMUR",
+
+  // "menu.section.about.urb": "URB",
+  "menu.section.about.urb": "URB",
+
   //"menu.section.contact": "Contact Us",
   "menu.section.contact": "Contacto",
 

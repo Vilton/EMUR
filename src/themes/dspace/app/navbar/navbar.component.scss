@@ -45,6 +45,39 @@
     }
   }
 
+  // Desktop dropdown ("Sobre" → EMUR, URB): gold panel right below the item.
+  ::ng-deep #main-site-navigation.emur-menu.navbar-nav-desktop {
+    .ds-menu-item-wrapper {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      z-index: 1000;
+      top: 100%;
+      left: 0;
+      min-width: 140px;
+      margin-top: 0 !important;
+      padding: 6px 0 !important;
+      border: 0;
+      border-radius: 12px;
+      background-color: #D6B13D;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18) !important;
+
+      .ds-menu-item {
+        display: block;
+        padding: 6px 18px;
+        font-size: clamp(15px, 1.1vw, 18px);
+        white-space: nowrap;
+
+        &:hover,
+        &:focus {
+          background-color: rgba(255, 255, 255, 0.15);
+        }
+      }
+    }
+  }
+
   .navbar-nav-mobile {
     align-items: stretch;
     flex-direction: column;

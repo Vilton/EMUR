@@ -12,7 +12,20 @@
       <a routerLink="/community-list">{{ 'menu.section.browse_global_communities_and_collections' | translate }}</a>
       <a routerLink="/statistics">{{ 'menu.section.statistics' | translate }}</a>
       <a routerLink="/contact">{{ 'menu.section.contact' | translate }}</a>
-      <a routerLink="/about">{{ 'menu.section.about' | translate }}</a>
+      <div class="carousel-submenu-group" [class.open]="aboutOpen"
+        (mouseenter)="setAboutOpen(true)" (mouseleave)="setAboutOpen(false)"
+        (focusout)="onAboutFocusOut($event)" (keydown.escape)="setAboutOpen(false)">
+        <button type="button" class="carousel-submenu-toggle" aria-haspopup="true"
+          aria-controls="carousel-about-submenu" [attr.aria-expanded]="aboutOpen"
+          (click)="setAboutOpen(!aboutOpen)">
+          {{ 'menu.section.about' | translate }}
+          <i class="fas fa-caret-down" aria-hidden="true"></i>
+        </button>
+        <div id="carousel-about-submenu" class="carousel-submenu">
+          <a routerLink="/about/emur">{{ 'menu.section.about.emur' | translate }}</a>
+          <a routerLink="/about/urb">{{ 'menu.section.about.urb' | translate }}</a>
+        </div>
+      </div>
     </nav>
   </div>
 

@@ -85,12 +85,26 @@ export class HomeNewsComponent extends BaseComponent implements OnInit, OnDestro
 
   currentSlide = 0;
   isPlaying = true;
+  aboutOpen = false;
 
   private readonly changeDetector = inject(ChangeDetectorRef);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly slideDuration = 8000;
   private autoplayTimer: ReturnType<typeof setTimeout> | null = null;
   private fadeTimer: ReturnType<typeof setTimeout> | null = null;
+
+  setAboutOpen(open: boolean): void {
+    this.aboutOpen = open;
+    this.changeDetector.markForCheck();
+  }
+
+  // Close the "Sobre" submenu when keyboard focus leaves it.
+  onAboutFocusOut(event: FocusEvent): void {
+    const group = event.currentTarget as HTMLElement;
+    if (!group.contains(event.relatedTarget as Node)) {
+      this.setAboutOpen(false);
+    }
+  }
 
   ngOnInit(): void {
     this.randomizeAnimation();

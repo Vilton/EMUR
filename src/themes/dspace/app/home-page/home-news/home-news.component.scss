@@ -44,15 +44,23 @@
   }
 
   .carousel-menu {
+    --menu-font: clamp(20px, 2.6vw, 42px);
+    --submenu-font: clamp(16px, 1.8vw, 28px);
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
 
-    a {
+    a,
+    .carousel-submenu-toggle {
+      padding: 0;
+      border: 0;
+      background: transparent;
       color: #fff;
+      font-family: inherit;
       // font-family: "Roboto Bauhaus", Arial, sans-serif;
-      font-size: clamp(20px, 2.6vw, 42px);
+      font-size: var(--menu-font);
       font-weight: 900;
       line-height: 1.1;
       text-decoration: none;
@@ -73,6 +81,48 @@
         outline: 2px solid #d9b238;
         outline-offset: 5px;
       }
+    }
+
+    // "Sobre": opens EMUR / URB to its right on hover, tap or keyboard,
+    // floating over the image so the logo and menu do not move.
+    .carousel-submenu-group {
+      position: relative;
+    }
+
+    .carousel-submenu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+      cursor: pointer;
+
+      .fa-caret-down {
+        font-size: 0.55em;
+        transform: rotate(-90deg);
+      }
+    }
+
+    .carousel-submenu {
+      position: absolute;
+      // First item on the same line as "Sobre"; the others go below it.
+      top: 0;
+      left: 100%;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      // Same font as the menu, smaller size. The top padding puts the first item on the
+      // "Sobre" baseline (Roboto at line-height 1.1: baseline ~0.89em below the line top).
+      // Padding (not a gap) keeps the pointer inside the group on the way to the items.
+      padding-top: calc((var(--menu-font) - var(--submenu-font)) * 0.89);
+      padding-left: 0.6em;
+      white-space: nowrap;
+
+      a {
+        font-size: var(--submenu-font);
+      }
+    }
+
+    .carousel-submenu-group.open .carousel-submenu {
+      display: flex;
     }
   }
 
@@ -261,8 +311,9 @@
     --aside-bottom: 84px; // buttons: bottom 20px + height 40px + 24px gap
     height: 70vh;
 
-    .carousel-menu a {
-      font-size: clamp(18px, 4.5vw, 28px);
+    .carousel-menu {
+      --menu-font: clamp(18px, 4.5vw, 28px);
+      --submenu-font: clamp(15px, 3.8vw, 22px);
     }
 
     .logo-overlay {

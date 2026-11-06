@@ -34,7 +34,7 @@ export class NavbarComponent extends BaseComponent {
 
   menuOrder(section: MenuSection): number {
     const order = ['home', 'community-list', 'statistics', 'contact', 'about'];
-    const position = order.indexOf(this.sectionPath(section));
+    const position = order.indexOf(section.id === 'about' ? 'about' : this.sectionPath(section));
     return position < 0 ? 10 + (section.index ?? 0) : position;
   }
 
