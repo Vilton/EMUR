@@ -1,0 +1,273 @@
+// Layout follows the mockup 5_3 SOBRE-REPOSITORIO.pdf, with the same base as the EMUR and URB pages.
+// Text uses the project font (Roboto); display titles use ITC Bauhaus, as in the mockup.
+$repo-gold: #d6b13d;
+$repo-wave: #ceab47;
+$repo-cream: #f4edd7;
+$repo-grey: #4d4d4d;
+$repo-blue: #30759b;
+$repo-bauhaus: 'ITC Bauhaus', 'Roboto', Arial, sans-serif;
+
+// Same horizontal limits as the header and footer.
+.repo-about {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(1800px + 2 * 90px);
+  margin: 0 auto;
+  padding: 20px clamp(12px, 4.5vw, 90px) 40px;
+  color: $repo-grey;
+  font-size: clamp(14px, 1.1vw, 17px);
+  line-height: 1.5;
+
+  p {
+    margin: 0 0 1em;
+  }
+
+  section {
+    margin-top: clamp(40px, 6vw, 96px);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.repo-about__hero {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1600 / 489;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: center 62%;
+}
+
+// Apresentação
+.repo-about__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 64px);
+  margin-top: clamp(24px, 3vw, 40px) !important;
+}
+
+.repo-about__intro-head {
+  padding-left: clamp(0px, 2vw, 32px);
+}
+
+.repo-about__display {
+  margin: 0;
+  font-family: $repo-bauhaus;
+  font-size: clamp(36px, 4.4vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.repo-about__subtitle {
+  margin-top: 0.6rem !important;
+  padding-left: clamp(0px, 5vw, 96px);
+  font-family: $repo-bauhaus;
+  font-size: clamp(16px, 1.6vw, 23px);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: right;
+  max-width: 22em;
+
+  span {
+    letter-spacing: 0.02em;
+  }
+}
+
+.repo-about__intro-text {
+  color: #000;
+  text-align: justify;
+}
+
+// Contribuições: wave with circles (desktop), cards (smaller screens).
+.repo-about__wave {
+  position: relative;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+}
+
+.repo-about__wave-lead {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  margin: 0 !important;
+  font-family: $repo-bauhaus;
+  font-size: clamp(13px, 1.35vw, 22px);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.repo-about__wave-line path {
+  fill: none;
+  stroke: $repo-wave;
+  stroke-width: 1;
+}
+
+.repo-about__wave-dots circle {
+  fill: $repo-wave;
+}
+
+.repo-about__wave-text text {
+  fill: $repo-cream;
+  font-weight: 900;
+  text-anchor: middle;
+}
+
+// Desktop: the circles already show the items; keep the list for screen readers only.
+.repo-about__wave-list {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+// O que está disponibilizado
+.repo-about__content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 6vw, 96px);
+}
+
+.repo-about__content-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.repo-about__content-title {
+  margin: 0 0 clamp(24px, 4vw, 64px);
+  color: $repo-gold;
+  font-family: $repo-bauhaus;
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.repo-about__content-text {
+  max-width: 640px;
+  padding-left: clamp(0px, 2.5vw, 40px);
+}
+
+// Documentos institucionais
+.repo-about__docs {
+  padding: clamp(16px, 2vw, 28px) clamp(16px, 3vw, 48px) clamp(24px, 3vw, 48px);
+  border: 1px solid $repo-gold;
+  border-radius: 18px;
+  text-align: center;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(20px, 4vw, 64px);
+  }
+
+  h3 {
+    margin: 0 0 1em;
+    color: $repo-blue;
+    font-size: clamp(15px, 1.4vw, 20px);
+    font-weight: 700;
+  }
+
+  p {
+    max-width: 18em;
+    margin: 0 auto !important;
+    color: $repo-blue;
+    font-style: italic;
+    font-weight: 300;
+  }
+}
+
+.repo-about__docs-title {
+  margin: 0 0 clamp(16px, 2vw, 28px);
+  font-family: $repo-bauhaus;
+  font-size: clamp(17px, 1.7vw, 24px);
+  font-weight: 700;
+}
+
+// Tablet and mobile: the wave becomes a list of cards under the lead text.
+@media (max-width: 991px) {
+  .repo-about__wave svg {
+    display: none;
+  }
+
+  .repo-about__wave-lead {
+    position: static;
+    width: auto;
+    max-width: 640px;
+    margin: 0 auto 1.25rem !important;
+    text-align: center;
+  }
+
+  .repo-about__wave-list {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      flex: 0 0 clamp(130px, 28vw, 180px);
+      aspect-ratio: 1 / 1;
+      padding: 14px;
+      border-radius: 50%;
+      background-color: $repo-wave;
+      color: $repo-cream;
+      font-size: clamp(12px, 2.2vw, 15px);
+      font-weight: 900;
+      line-height: 1.25;
+      text-align: center;
+    }
+  }
+}
+
+// Mobile: one column.
+@media (max-width: 767px) {
+  .repo-about__intro,
+  .repo-about__content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .repo-about__intro-head,
+  .repo-about__subtitle,
+  .repo-about__content-text {
+    padding-left: 0;
+  }
+
+  .repo-about__subtitle {
+    text-align: left;
+  }
+
+  .repo-about__wave-list li {
+    flex-basis: 140px;
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .repo-about__docs ul {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}

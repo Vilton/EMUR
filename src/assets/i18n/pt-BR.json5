@@ -5069,6 +5069,9 @@
   // "menu.section.about.urb": "URB",
   "menu.section.about.urb": "URB",
 
+  // "menu.section.about.repository": "Repository",
+  "menu.section.about.repository": "Repositório",
+
   //"menu.section.contact": "Contact Us",
   "menu.section.contact": "Contato",
 

@@ -308,7 +308,9 @@
     --edge: 20px;
     --title-bottom: 88px;
     --title-height: 48px;
-    --aside-bottom: 84px; // buttons: bottom 20px + height 40px + 24px gap
+    // buttons: bottom 20px + height 40px + 24px gap, plus room for the third "Sobre" item,
+    // whose submenu would otherwise cover the "next" button on phones.
+    --aside-bottom: 108px;
     height: 70vh;
 
     .carousel-menu {

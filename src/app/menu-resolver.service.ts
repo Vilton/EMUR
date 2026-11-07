@@ -166,6 +166,18 @@ export class MenuResolverService {
                 link: `/about/emur`,
               } as LinkMenuItemModel,
             },
+            {
+              id: 'about_repository',
+              parentID: 'about',
+              index: 2,
+              active: false,
+              visible: true,
+              model: {
+                type: MenuItemType.LINK,
+                text: 'menu.section.about.repository',
+                link: `/about/repositorio`,
+              } as LinkMenuItemModel,
+            },
             /* Browse */
             // =========================
             // Desativação do menu All of DSpace
