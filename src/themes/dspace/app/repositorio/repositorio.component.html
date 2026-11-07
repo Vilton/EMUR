@@ -37,7 +37,8 @@
     <svg viewBox="20 270 420 100" aria-hidden="true" focusable="false">
       <!-- The straight ends run far past the viewBox so they reach both edges of the screen (clipped by the page). -->
       <g class="repo-about__wave-line">
-        <path d="M-3000 329.5L125.2 329.5C126.8 329.5 128.2 330.9 128.2 332.6L128.2 348.5C128.2 358.7 136.5 367 146.6 367C156.8 367 165.1 358.7 165.1 348.5L165.1 316.7C165.1 306.6 173.3 298.3 183.5 298.3C193.7 298.3 201.9 306.6 201.9 316.7L201.9 341.6C201.9 354.7 212.5 365.2 225.5 365.2C238.6 365.2 249.1 354.7 249.1 341.6L249 320.4C249 304.8 261.7 292.1 277.3 292.1C293 292.1 305.7 304.8 305.7 320.4L305.4 347.5C305.4 358.3 314.1 367 324.8 367C335.6 367 344.3 358.3 344.3 347.5L344.1 314.9C344.1 303.2 353.6 293.7 365.3 293.7C377 293.7 386.4 303.2 386.4 314.9L386.4 335.8C386.4 350.5 398.3 362.4 413 362.4C427.8 362.4 439.7 350.5 439.7 335.8L439.7 332.6C439.7 330.9 441 329.5 442.7 329.5L3500 329.5" />
+        <path
+          d="M-3000 329.5L125.2 329.5C126.8 329.5 128.2 330.9 128.2 332.6L128.2 348.5C128.2 358.7 136.5 367 146.6 367C156.8 367 165.1 358.7 165.1 348.5L165.1 316.7C165.1 306.6 173.3 298.3 183.5 298.3C193.7 298.3 201.9 306.6 201.9 316.7L201.9 341.6C201.9 354.7 212.5 365.2 225.5 365.2C238.6 365.2 249.1 354.7 249.1 341.6L249 320.4C249 304.8 261.7 292.1 277.3 292.1C293 292.1 305.7 304.8 305.7 320.4L305.4 347.5C305.4 358.3 314.1 367 324.8 367C335.6 367 344.3 358.3 344.3 347.5L344.1 314.9C344.1 303.2 353.6 293.7 365.3 293.7C377 293.7 386.4 303.2 386.4 314.9L386.4 335.8C386.4 350.5 398.3 362.4 413 362.4C427.8 362.4 439.7 350.5 439.7 335.8L439.7 332.6C439.7 330.9 441 329.5 442.7 329.5L3500 329.5" />
       </g>
       <g class="repo-about__wave-dots">
         <circle cx="146.6" cy="347.5" r="16.1" />
@@ -49,19 +50,48 @@
         <circle cx="412.8" cy="334.2" r="23.3" />
       </g>
       <g class="repo-about__wave-text">
-        <text font-size="4.66"><tspan x="146.6" y="345.8">Tomada de</tspan><tspan x="146.6" y="352.3">decisão</tspan></text>
-        <text font-size="3.89"><tspan x="183.5" y="315.5">Instrumento</tspan><tspan x="183.5" y="320.2">de pesquisas</tspan></text>
-        <text font-size="4.2"><tspan x="225.5" y="335.9">Planejamento de</tspan><tspan x="225.5" y="342.4">longo prazo e</tspan><tspan x="225.5" y="348.9">sustentabilidade</tspan></text>
-        <text font-size="4.66"><tspan x="277.3" y="314.3">Monitoramento e</tspan><tspan x="277.3" y="320.8">avaliação de</tspan><tspan x="277.3" y="327.3">políticas públicas</tspan></text>
-        <text font-size="3.89"><tspan x="325.2" y="345.7">Integração e</tspan><tspan x="325.2" y="350.4">visão sistêmica</tspan><tspan x="325.2" y="355">da cidade</tspan></text>
-        <text font-size="3.89"><tspan x="365.3" y="310.7">Transparência e</tspan><tspan x="365.3" y="315.4">prestação de</tspan><tspan x="365.3" y="320">contas à</tspan><tspan x="365.3" y="324.7">sociedade</tspan></text>
-        <text font-size="4.66"><tspan x="412.8" y="323">Preservação da</tspan><tspan x="412.8" y="329.5">memória</tspan><tspan x="412.8" y="336">urbanística da</tspan><tspan x="412.8" y="342.5">cidade conectada</tspan><tspan x="412.8" y="349.1">ao futuro</tspan></text>
+        <text font-size="4.66">
+          <tspan x="146.6" y="345.8">Tomada de</tspan>
+          <tspan x="146.6" y="352.3">decisão</tspan>
+        </text>
+        <text font-size="3.89">
+          <tspan x="183.5" y="315.5">Instrumento</tspan>
+          <tspan x="183.5" y="320.2">de pesquisas</tspan>
+        </text>
+        <text font-size="4.2">
+          <tspan x="225.5" y="335.9">Planejamento de</tspan>
+          <tspan x="225.5" y="342.4">longo prazo e</tspan>
+          <tspan x="225.5" y="348.9">sustentabilidade</tspan>
+        </text>
+        <text font-size="4.66">
+          <tspan x="277.3" y="314.3">Monitoramento e</tspan>
+          <tspan x="277.3" y="320.8">avaliação de</tspan>
+          <tspan x="277.3" y="327.3">políticas públicas</tspan>
+        </text>
+        <text font-size="3.89">
+          <tspan x="325.2" y="345.7">Integração e</tspan>
+          <tspan x="325.2" y="350.4">visão sistêmica</tspan>
+          <tspan x="325.2" y="355">da cidade</tspan>
+        </text>
+        <text font-size="3.89">
+          <tspan x="365.3" y="310.7">Transparência e</tspan>
+          <tspan x="365.3" y="315.4">prestação de</tspan>
+          <tspan x="365.3" y="320">contas à</tspan>
+          <tspan x="365.3" y="324.7">sociedade</tspan>
+        </text>
+        <text font-size="4.66">
+          <tspan x="412.8" y="323">Preservação da</tspan>
+          <tspan x="412.8" y="329.5">memória</tspan>
+          <tspan x="412.8" y="336">urbanística da</tspan>
+          <tspan x="412.8" y="342.5">cidade conectada</tspan>
+          <tspan x="412.8" y="349.1">ao futuro</tspan>
+        </text>
       </g>
     </svg>
     <!-- Same items as the circles: read by screen readers, shown as cards on smaller screens -->
     <ul class="repo-about__wave-list">
       @for (item of contributions; track item) {
-        <li>{{ item }}</li>
+      <li>{{ item }}</li>
       }
     </ul>
   </section>
@@ -89,7 +119,7 @@
   </section>
 
   <!-- Documentos institucionais -->
-  <section class="repo-about__docs" aria-labelledby="repo-docs-title">
+  <!-- <section class="repo-about__docs" aria-labelledby="repo-docs-title">
     <h2 id="repo-docs-title" class="repo-about__docs-title">Documentos Institucionais do Repositório</h2>
     <ul>
       @for (doc of documents; track doc.title) {
@@ -99,6 +129,6 @@
         </li>
       }
     </ul>
-  </section>
+  </section> -->
 
 </div>
