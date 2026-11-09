@@ -49,8 +49,10 @@
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    // Items aligned to the right edge of the menu (the widest item), next to the submenu.
+    align-items: flex-end;
     gap: 8px;
+    text-align: right;
 
     a,
     .carousel-submenu-toggle {
@@ -85,8 +87,14 @@
 
     // "Sobre": opens EMUR / URB to its right on hover, tap or keyboard,
     // floating over the image so the logo and menu do not move.
+    // "Sobre" is the first item: the group spans the width of the widest item, so the
+    // submenu opens to the right of the whole menu (not over "Comunidades") and the
+    // pointer stays inside the group on the way to it.
     .carousel-submenu-group {
       position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-self: stretch;
     }
 
     .carousel-submenu-toggle {
@@ -114,6 +122,7 @@
       // Padding (not a gap) keeps the pointer inside the group on the way to the items.
       padding-top: calc((var(--menu-font) - var(--submenu-font)) * 0.89);
       padding-left: 0.6em;
+      text-align: left;
       white-space: nowrap;
 
       a {

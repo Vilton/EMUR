@@ -9,9 +9,6 @@
     <!-- Ajuste os destinos conforme as rotas cadastradas no projeto. -->
     <nav class="carousel-menu" aria-label="Menu principal">
       <!-- <a routerLink="/home">{{ 'home.title' | translate }}</a> -->
-      <a routerLink="/community-list">{{ 'menu.section.browse_global_communities_and_collections' | translate }}</a>
-      <a routerLink="/statistics">{{ 'menu.section.statistics' | translate }}</a>
-      <a routerLink="/contact">{{ 'menu.section.contact' | translate }}</a>
       <div class="carousel-submenu-group" [class.open]="aboutOpen"
         (mouseenter)="setAboutOpen(true)" (mouseleave)="setAboutOpen(false)"
         (focusout)="onAboutFocusOut($event)" (keydown.escape)="setAboutOpen(false)">
@@ -27,6 +24,9 @@
           <a routerLink="/about/repositorio">{{ 'menu.section.about.repository' | translate }}</a>
         </div>
       </div>
+      <a routerLink="/community-list">{{ 'menu.section.browse_global_communities_and_collections' | translate }}</a>
+      <a routerLink="/statistics">{{ 'menu.section.statistics' | translate }}</a>
+      <a routerLink="/contact">{{ 'menu.section.contact' | translate }}</a>
     </nav>
   </div>
 
