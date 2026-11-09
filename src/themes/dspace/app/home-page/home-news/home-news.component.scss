@@ -38,7 +38,8 @@
     z-index: 15;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    // Logo and menu share the same right edge.
+    align-items: flex-end;
     gap: clamp(16px, 2vw, 32px);
     max-width: 60%;
   }
@@ -147,7 +148,7 @@
       height: auto;
       max-height: 190px;
       object-fit: contain;
-      object-position: left top;
+      object-position: right top;
     }
   }
 
