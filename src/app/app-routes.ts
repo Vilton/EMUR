@@ -42,10 +42,6 @@ import { ThemedPageNotFoundComponent } from './pagenotfound/themed-pagenotfound.
 import { PROCESS_MODULE_PATH } from './process-page/process-page-routing.paths';
 import { provideSubmissionState } from './submission/provide-submission-state';
 import { SUGGESTION_MODULE_PATH } from './suggestions-page/suggestions-page-routing-paths';
-import { EmurComponent } from 'src/themes/dspace/app/emur/emur.component';
-import { RepositorioComponent } from 'src/themes/dspace/app/repositorio/repositorio.component';
-import { UrbComponent } from 'src/themes/dspace/app/urb/urb.component';
-import { ContactComponent } from 'src/themes/dspace/app/contact/contact.component';
 
 export const APP_ROUTES: Route[] = [
   { path: INTERNAL_SERVER_ERROR, component: ThemedPageInternalServerErrorComponent },
@@ -266,14 +262,27 @@ export const APP_ROUTES: Route[] = [
         path: 'about',
         children: [
           { path: '', pathMatch: 'full', redirectTo: 'emur' },
-          { path: 'emur', component: EmurComponent, data: { title: 'Sobre a EMUR' } },
-          { path: 'urb', component: UrbComponent, data: { title: 'Sobre a URB' } },
-          { path: 'repositorio', component: RepositorioComponent, data: { title: 'Sobre o Repositório' } },
+          // EMUR: carregadas sob demanda (loadComponent) para nao entrarem no bundle inicial
+          {
+            path: 'emur',
+            loadComponent: () => import('../themes/dspace/app/emur/emur.component').then((m) => m.EmurComponent),
+            data: { title: 'Sobre a EMUR' },
+          },
+          {
+            path: 'urb',
+            loadComponent: () => import('../themes/dspace/app/urb/urb.component').then((m) => m.UrbComponent),
+            data: { title: 'Sobre a URB' },
+          },
+          {
+            path: 'repositorio',
+            loadComponent: () => import('../themes/dspace/app/repositorio/repositorio.component').then((m) => m.RepositorioComponent),
+            data: { title: 'Sobre o Repositório' },
+          },
         ],
       },
       {
         path: 'contact',
-        component: ContactComponent,
+        loadComponent: () => import('../themes/dspace/app/contact/contact.component').then((m) => m.ContactComponent),
         data: { title: 'Contato' },
       },
       { path: '**', pathMatch: 'full', component: ThemedPageNotFoundComponent },

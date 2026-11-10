@@ -3,7 +3,13 @@
   width: 100%;
   // --ds-header-navbar-border-bottom-style: solid var(--ds-header-navbar-border-bottom-height) var(--ds-header-navbar-border-bottom-color);
   // --ds-expandable-navbar-border-top-style: solid var(--ds-expandable-navbar-border-top-height) var(--ds-expandable-navbar-border-top-color);
-  --ds-expandable-navbar-height: calc(100vh - var(--ds-header-height));
+  --ds-expandable-navbar-height: auto;
+  // Right edge of the mobile menu panel: same side padding as the header (header.component.scss).
+  --emur-mobile-menu-edge: clamp(12px, 4.5vw, 90px);
+
+  @media (max-width: 576px) {
+    --emur-mobile-menu-edge: 8px;
+  }
 
   div#header-navbar-wrapper {
     // The header-navbar-wrapper should not have a z-index, otherwise it would cover the media viewer despite its higher z-index
@@ -17,19 +23,29 @@
       min-width: 0;
     }
 
+    // Mobile menu: a panel under the toggler, only as wide and tall as its items
+    // (instead of the full screen width and height).
     div#mobile-navbar-wrapper {
-      width: 100%;
+      width: max-content;
+      // Already as wide as with "Sobre" expanded (indented URB / EMUR / Repositório),
+      // so the panel does not grow when the submenu opens.
+      min-width: 12em;
+      max-width: calc(100% - 2 * var(--emur-mobile-menu-edge));
       background-color: var(--ds-expandable-navbar-bg);
       position: absolute;
       top: 100%;
-      left: 0;
+      right: var(--emur-mobile-menu-edge);
+      left: auto;
       z-index: var(--ds-nav-z-index);
       overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 
       nav#collapsible-mobile-navbar {
         // Following parameters are changed by slideMobileNav animation
-        min-height: var(--ds-expandable-navbar-height);
+        min-height: 0;
         height: auto;
+        padding-bottom: 8px;
         border-bottom: var(--ds-header-navbar-border-bottom-style);
       }
     }

@@ -20,8 +20,9 @@
     order: 0;
   }
 
+  // Same position as "contact" in menuOrder() (navbar.component.ts).
   .emur-contact-link {
-    order: 3;
+    order: 4;
   }
 
   ::ng-deep #main-site-navigation.emur-menu {
